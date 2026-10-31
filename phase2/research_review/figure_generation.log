@@ -1,0 +1,14 @@
+/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/research_review/generate_figures.py:35: DtypeWarning: Columns (20: action_hist) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(CSV)
+Input rows: 72,000
+Methods: 9
+Loads: [1.0, 1.5, 2.0, 3.0]
+Columns: ['method', 'model_seed', 'scenario_idx', 'scenario_seed', 'load', 'offered_volume', 'accepted_volume', 'accepted_offered_ratio', 'blocked_volume_ratio', 'flows_fully_blocked', 'flows_partially_admitted', 'max_utilization', 'mean_utilization', 'saturated_links', 'mean_hops_accepted', 'capacity_hops_used', 'mean_hops_per_flow', 'replay_ok', 'caps_ok', 'frac_route_is_minhop_cand0', 'action_hist']
+Inferred metric: None
+Wrote /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/figures_final/fig01_evaluation_coverage.png
+WARNING: no obvious success metric column found; figures 2-3 skipped.
+Wrote /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/figures_final/fig07_utilization_by_load.png
+
+Finished figure generation.
+Figures are descriptive. Confirm inferential statistics against the
+pre-existing preregistered analysis files before using in a paper.
