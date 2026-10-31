@@ -1,0 +1,88 @@
+{
+  "name": "x_06_confirmatory_eval",
+  "status": "completed",
+  "started_utc": "2026-10-28T13:09:57+00:00",
+  "config_path": "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/configs/x_experiments.json",
+  "config_sha256": "2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec",
+  "args": {
+    "config": "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/configs/x_experiments.json",
+    "out": null,
+    "overwrite": false,
+    "verbose": false,
+    "smoke": false,
+    "heuristic": null
+  },
+  "seeds": {
+    "scenarios": "test_confirmatory_v2[0:500) x loads [1.0, 1.5, 2.0, 3.0]"
+  },
+  "git": null,
+  "code_tree_sha256": "2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.2",
+    "pytest": "8.4.2"
+  },
+  "inputs": {},
+  "outputs": {
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/confirmatory_v1/episodes.csv": "e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73"
+  },
+  "extra": {
+    "topology_sha256": "fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e",
+    "heuristic": {
+      "p": 1.0,
+      "floor": 0.1,
+      "infeasible_multiplier": 1.0
+    },
+    "agents_present": {
+      "A_legacy_150k": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "A_600k": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "B_legacy_150k": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ]
+    },
+    "smoke": false,
+    "resumed_existing_lock": false,
+    "n_rows": 72000
+  },
+  "wall_s": 1842.8,
+  "finished_utc": "2026-10-28T13:40:40+00:00"
+}

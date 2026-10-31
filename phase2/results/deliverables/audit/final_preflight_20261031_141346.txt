@@ -1,0 +1,238 @@
+============================================================
+PHASE 2 — FINAL EXPERIMENT PREFLIGHT
+Date: 2026-10-31T14:13:46+02:00
+Working directory: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation
+============================================================
+
+===== 1. GIT / WORKTREE IDENTITY =====
+8884d1a3a4a68e2945eb71ea2c7fef3d803cbb17
+ M phase2/results/v2/diag_checkpoints_enhance/per_model.csv
+ M phase2/results/v2/diag_checkpoints_replace/per_model.csv
+ M phase2/results/v2/env_check/checkpoint_integrity.csv
+ M phase2/results/v2/static_audit/static_audit.json
+ M phase2/scripts/x_07_poison_eval.py
+ M phase2/src/p2/sim.py
+ M phase2/src/p2x/parts.py
+ M phase2/tests/test_x_pipeline_stub.py
+ M phase2/tests/test_x_policies_telemetry.py
+ M phase2/tests/test_x_stats_train_manifest.py
+?? FINAL_COMPLETION_LOG.txt
+?? FINAL_COMPLETION_REPORT.txt
+?? FINAL_DELIVERABLES/
+?? PHASE2_FINAL_DELIVERABLES_20261028T223309Z.zip
+?? phase2/FINAL_DELIVERABLES/
+?? phase2/configs/x_experiments_local.json
+?? phase2/research_review/
+?? phase2/results/v2/FINAL_AUDIT_LOG.txt
+?? phase2/results/v2/FINAL_AUDIT_REPORT.md
+?? phase2/results/v2/agent_a_600k_verification/
+?? phase2/results/v2/confirmatory_v1/manifest.json
+?? phase2/results/v2/diag_enhance_local/
+?? phase2/results/v2/diag_replace_local/
+?? phase2/results/v2/env_check_600k_local/
+?? phase2/results/v2/env_check_local/
+?? phase2/results/v2/figures_final/
+?? phase2/results/v2/freeze.json
+?? phase2_missing_files.log
+?? phase2_routing_poisoning_project_dossier_and_review_prompt.md
+?? phase2_test_diagnostic.log
+?? restore_log.txt
+
+===== 2. CURRENT SOURCE HASHES =====
+3a79e854aa6c4de9f33d245717829d6b88d2d8f41aa613a33a3e2a9729f248ea  phase2/src/p2/baselines.py
+18713bd7e0c593964139917d044ba13dc37df5b5884ff9acdf1545a89afa9c56  phase2/src/p2/envs.py
+42b00e59cc61b2919785ae3f1193009ea86ba5f86abd7db84b4a209540ff8abc  phase2/src/p2/__init__.py
+4af71c7e608d262de2c11289de3ae685fe45f1cbf8079f2872fd8bca6e44dc53  phase2/src/p2/sim.py
+2c65fdf4c63da213e079feaa2886674f4837b841be87e66dcbeb9fd8c14c1e15  phase2/src/p2/topology.py
+3e9da0feecf520cf0f1cccba0f00baaf09a5e2a5097799d11bc21d8628a643c0  phase2/src/p2x/analysis.py
+30bd35ed4dc32184eaaea0cdd6a4d299792c493f0a2a4754f7a0a45fde130dac  phase2/src/p2x/cli.py
+30a48700de0790e62a0b46454124490a24be574b55ee36045b5ad6875f17038e  phase2/src/p2x/config.py
+4181c613e3547ee666827d004d11ba250c3f674643666654b31c5641bbea73d2  phase2/src/p2x/__init__.py
+a1ad91b0fc12408b40532e6adfc1390ed2ee968ffc8fd7d75d5a785f42f5afa8  phase2/src/p2x/manifest.py
+53abb35327dadc60b8657717b30515379a70f9ade01cc7c8f830c18d7b32aeef  phase2/src/p2x/parts.py
+49fdc96fe4d313f03889be66f608f793472b143802276271e1ab11144490ecd9  phase2/src/p2x/policies.py
+9ccb35f28cc1c8a77a2c0e23270af8c4d0e60357028de21bcb0eb5ba766783d9  phase2/src/p2x/rollout.py
+0eca3bb62e5cf7ead0cffa7692353114f57673c9ad0f8929b183f7974bb65f63  phase2/src/p2x/stats.py
+40b9b4f9b3c73498f79d554c9bc1dd6f8760b15b9aef2cd00b80946cc22acee0  phase2/src/p2x/telemetry.py
+6487edd90e3e528ab27eedf8e643a3308c2e79776222d190855d05df07e4ba0f  phase2/src/p2x/train_long.py
+
+===== 3. CONFIGURATION / ARTIFACT INVENTORY =====
+phase2/results/v2/agent_a_600k_verification/verification.csv (2199 bytes)
+phase2/results/v2/agent_a_600k_verification/verification.json (6050 bytes)
+phase2/results/v2/confirmatory_v1/episodes.csv (17564609 bytes)
+phase2/results/v2/confirmatory_v1/manifest.json (2150 bytes)
+phase2/results/v2/diag_baselines/coverage.json (489 bytes)
+phase2/results/v2/diag_baselines/decisions.json (966 bytes)
+phase2/results/v2/diag_baselines/episodes.csv (295735 bytes)
+phase2/results/v2/diag_baselines/grid_vs_unit_OPTIMISTIC_pp.json (4488 bytes)
+phase2/results/v2/diag_baselines/heuristic_selection.json (1188 bytes)
+phase2/results/v2/diag_baselines/manifest.json (2895 bytes)
+phase2/results/v2/diag_baselines/paired_diffs_exploratory_pp.json (14139 bytes)
+phase2/results/v2/diag_baselines/paired_diffs_heldout_pp.json (5608 bytes)
+phase2/results/v2/diag_checkpoints_enhance/manifest.json (1961 bytes)
+phase2/results/v2/diag_checkpoints_enhance/per_model.csv (10763 bytes)
+phase2/results/v2/diag_checkpoints_enhance/summary.json (768 bytes)
+phase2/results/v2/diag_checkpoints_replace/manifest.json (1961 bytes)
+phase2/results/v2/diag_checkpoints_replace/per_model.csv (7797 bytes)
+phase2/results/v2/diag_checkpoints_replace/summary.json (358 bytes)
+phase2/results/v2/diag_enhance_local/manifest.json (2221 bytes)
+phase2/results/v2/diag_enhance_local/per_model.csv (5576 bytes)
+phase2/results/v2/diag_enhance_local/summary.json (768 bytes)
+phase2/results/v2/diag_replace_local/manifest.json (2221 bytes)
+phase2/results/v2/diag_replace_local/per_model.csv (4136 bytes)
+phase2/results/v2/diag_replace_local/summary.json (358 bytes)
+phase2/results/v2/env_check_600k_local/manifest.json (1375 bytes)
+phase2/results/v2/env_check/checkpoint_integrity.csv (2103 bytes)
+phase2/results/v2/env_check_local/checkpoint_integrity.csv (2103 bytes)
+phase2/results/v2/env_check_local/manifest.json (6054 bytes)
+phase2/results/v2/env_check/manifest.json (5848 bytes)
+phase2/results/v2/figures_final/data_schema.json (2985 bytes)
+phase2/results/v2/figures_final/descriptive_summary_by_method_load.csv (5171 bytes)
+phase2/results/v2/figures_final/row_counts_by_method_load.csv (858 bytes)
+phase2/results/v2/freeze.json (12038 bytes)
+phase2/results/v2/models/replace_600k/seed42/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed42/final.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed42/last.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed42/meta.json (1761 bytes)
+phase2/results/v2/models/replace_600k/seed42/state.json (5728 bytes)
+phase2/results/v2/models/replace_600k/seed42/val_curve.csv (680 bytes)
+phase2/results/v2/models/replace_600k/seed43/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed43/final.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed43/last.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed43/meta.json (1759 bytes)
+phase2/results/v2/models/replace_600k/seed43/state.json (7293 bytes)
+phase2/results/v2/models/replace_600k/seed43/val_curve.csv (985 bytes)
+phase2/results/v2/models/replace_600k/seed44/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed44/final.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed44/last.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed44/meta.json (1761 bytes)
+phase2/results/v2/models/replace_600k/seed44/state.json (6564 bytes)
+phase2/results/v2/models/replace_600k/seed44/val_curve.csv (830 bytes)
+phase2/results/v2/models/replace_600k/seed45/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed45/final.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed45/last.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed45/meta.json (1762 bytes)
+phase2/results/v2/models/replace_600k/seed45/state.json (6479 bytes)
+phase2/results/v2/models/replace_600k/seed45/val_curve.csv (834 bytes)
+phase2/results/v2/models/replace_600k/seed46/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed46/final.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed46/last.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed46/meta.json (1761 bytes)
+phase2/results/v2/models/replace_600k/seed46/state.json (6528 bytes)
+phase2/results/v2/models/replace_600k/seed46/val_curve.csv (832 bytes)
+phase2/results/v2/models/replace_600k/seed47/best.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed47/final.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed47/last.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed47/meta.json (1760 bytes)
+phase2/results/v2/models/replace_600k/seed47/state.json (7052 bytes)
+phase2/results/v2/models/replace_600k/seed47/val_curve.csv (934 bytes)
+phase2/results/v2/models/replace_600k/seed48/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed48/final.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed48/last.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed48/meta.json (1759 bytes)
+phase2/results/v2/models/replace_600k/seed48/state.json (6824 bytes)
+phase2/results/v2/models/replace_600k/seed48/val_curve.csv (889 bytes)
+phase2/results/v2/models/replace_600k/seed49/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed49/final.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed49/last.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed49/meta.json (1760 bytes)
+phase2/results/v2/models/replace_600k/seed49/state.json (5790 bytes)
+phase2/results/v2/models/replace_600k/seed49/val_curve.csv (680 bytes)
+phase2/results/v2/models/replace_600k/seed50/best.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed50/final.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed50/last.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed50/meta.json (1760 bytes)
+phase2/results/v2/models/replace_600k/seed50/state.json (7582 bytes)
+phase2/results/v2/models/replace_600k/seed50/val_curve.csv (1037 bytes)
+phase2/results/v2/models/replace_600k/seed51/best.zip (686994 bytes)
+phase2/results/v2/models/replace_600k/seed51/final.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed51/last.zip (687008 bytes)
+phase2/results/v2/models/replace_600k/seed51/meta.json (1760 bytes)
+phase2/results/v2/models/replace_600k/seed51/state.json (5932 bytes)
+phase2/results/v2/models/replace_600k/seed51/val_curve.csv (731 bytes)
+phase2/results/v2/static_audit/static_audit.json (2561 bytes)
+
+===== 4. CHECKPOINT INVENTORY =====
+./audit/original_script_rerun/ppo_routing_RETRAINED_by_original_script_seed42.zip (184940 bytes)
+./PHASE2_FINAL_DELIVERABLES_20261028T223309Z.zip (62699 bytes)
+./phase2/results/v2/models/replace_600k/seed42/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed42/final.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed42/last.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed43/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed43/final.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed43/last.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed44/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed44/final.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed44/last.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed45/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed45/final.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed45/last.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed46/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed46/final.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed46/last.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed47/best.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed47/final.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed47/last.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed48/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed48/final.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed48/last.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed49/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed49/final.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed49/last.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed50/best.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed50/final.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed50/last.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed51/best.zip (686994 bytes)
+./phase2/results/v2/models/replace_600k/seed51/final.zip (687008 bytes)
+./phase2/results/v2/models/replace_600k/seed51/last.zip (687008 bytes)
+./results/models/ppo_seed42.zip (184222 bytes)
+./results/models/ppo_seed43.zip (184222 bytes)
+./results/models/ppo_seed44.zip (184222 bytes)
+./results/models/ppo_seed45.zip (184222 bytes)
+./results/models/ppo_seed46.zip (184222 bytes)
+./results/models/ppo_seed47.zip (184222 bytes)
+./results/models/ppo_seed48.zip (184222 bytes)
+./results/models/ppo_seed49.zip (184222 bytes)
+./results/models/ppo_seed50.zip (184222 bytes)
+./results/models/ppo_seed51.zip (184222 bytes)
+
+===== 5. TEST SUITE =====
+bash: .venv/bin/python: No such file or directory
+TEST_EXIT_CODE=127
+
+===== 6. RUNNER DISCOVERY =====
+./FINAL_DELIVERABLES/audit/full_poisoning_20261028T223445Z/x_07_help.txt
+./FINAL_DELIVERABLES/audit/runner_repair_backup_20261031T112858Z/x_07_poison_eval.py
+./FINAL_DELIVERABLES/audit/x07_repair_backup_20261031T113807Z/x_07_poison_eval.py
+./phase2/FINAL_DELIVERABLES/audit/comprehensive_review_20261029T163018Z/phase2__scripts__x_07_poison_eval.py
+./phase2/scripts/__pycache__/x_07_poison_eval.cpython-312.pyc
+./phase2/scripts/x_07_poison_eval.py
+
+===== 7. RUNNER HELP =====
+Runner: ./FINAL_DELIVERABLES/audit/runner_repair_backup_20261031T112858Z/x_07_poison_eval.py
+bash: .venv/bin/python: No such file or directory
+HELP_EXIT_CODE=127
+
+===== 8. FREEZE / CONFIRMATORY MANIFEST =====
+--- phase2/results/v2/freeze.json
+bash: .venv/bin/python: No such file or directory
+--- phase2/results/v2/confirmatory_v1/manifest.json
+bash: .venv/bin/python: No such file or directory
+--- phase2/results/v2/diag_baselines/heuristic_selection.json
+bash: .venv/bin/python: No such file or directory
+
+===== 9. SMOKE OUTPUTS =====
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/episodes.csv (42844 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/manifest.json (2973 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/parts/A_600k__42.csv (7066 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/parts/greedy_widest__-1.csv (6370 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/parts/minhop__-1.csv (6039 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/parts/shortest_feasible__-1.csv (6381 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/parts/shortest_feasible_k__-1.csv (6367 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/parts/unit_weight_dijkstra__-1.csv (6371 bytes)
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/parts/util_weight_dijkstra__-1.csv (6572 bytes)
+
+===== PREFLIGHT SUMMARY =====
+TEST_EXIT_CODE=127
+REPORT=FINAL_DELIVERABLES/audit/final_preflight_20261031_141346.txt
+============================================================

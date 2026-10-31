@@ -1,0 +1,123 @@
+Started UTC: 2026-10-28T22:34:45+00:00
+Root: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation
+===== 1. INPUT INTEGRITY =====
+clean CSV: OK e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73
+pilot CSV: OK 990b21741f7d1ea3a60d506ad6f6467fdb74dd220e01d92b2c87fca98cfcefaf
+original freeze: OK 0747e439645597b7eec67c00d02375406e33f2ee03b0caafd98183f272f97733
+Frozen checkpoints verified: 30; missing: 0; mismatched: 0
+===== 2. CODE-TREE HASH AUDIT =====
+Original manifest code_tree_sha256: 2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714
+Git HEAD: 8884d1a3a4a68e2945eb71ea2c7fef3d803cbb17
+Git status:
+?? "-iname *manifest*.json \\"
+?? FINAL_COMPLETION_LOG.txt
+?? FINAL_COMPLETION_REPORT.txt
+?? FINAL_DELIVERABLES/
+?? PHASE2_FINAL_DELIVERABLES_20261028T223309Z.zip
+?? "hes across local manifests ===\""
+?? phase2/configs/x_experiments_local.json
+?? phase2/research_review/
+?? phase2/results/v2/FINAL_AUDIT_LOG.txt
+?? phase2/results/v2/FINAL_AUDIT_REPORT.md
+?? phase2/results/v2/confirmatory_v1/manifest.json
+?? phase2/results/v2/diag_enhance_local/
+?? phase2/results/v2/diag_replace_local/
+?? phase2/results/v2/env_check_local/
+?? phase2/results/v2/figures_final/
+?? phase2/results/v2/freeze.json
+?? phase2_missing_files.log
+?? phase2_test_diagnostic.log
+?? restore_log.txt
+?? "tatus=\", d.get(\"status\"),"
+Current tracked-file candidate hash: 93028b016fd4faf0c09d87d67a5c16bd6bdd91293b9f0b675024dd8ab9df82d6
+Tracked files included: 200
+Matches original: False
+NOTE: this is a transparent candidate algorithm, not proof it matches the original hash algorithm.
+
+Resolution rule: preserve the recorded hash. Exact resolution requires recovering the original code snapshot/hash algorithm or rerunning confirmatory evaluation from the validated current source tree.
+===== 3. CHECK EVALUATION CLI =====
+usage: x_07_poison_eval.py [-h] [--config CONFIG] [--out OUT] [--overwrite]
+                           [-v] [--preset {smoke,pilot,full}] [--run]
+                           [--baselines-only]
+                           [--targets TARGETS [TARGETS ...]]
+
+Stage F - TEST-TIME TELEMETRY POISONING (prepared; DRY RUN by default, --run to execute). Threat model: docs/THREAT_MODEL.md.
+Perturbs ONLY the utilization vector observed by a policy: obs = clip(true + delta, 0, 1), |delta_e| <= eps. True loads, capacities, traffic, reward and
+model parameters are untouched; every episode is replay-verified and model parameter hashes are compared before/after.
+Gates: presets 'pilot'/'full' need a valid freeze AND a completed confirmatory run (attack matrix is predeclared in the frozen config; no tuning).
+Preset 'smoke' (3 scenarios, development set) only validates the pipeline; its numbers must not be interpreted or used to change the matrix.
+Clean controls (attack 'clean') and the random_sign noise control at equal eps are always part of the matrix.
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       experiment config (default: /media/bakhom/New Volume/R
+                        esearch/RL_Sec/practical/phase2-
+                        validation/phase2/configs/x_experiments.json)
+  --out OUT             output directory (default: <results_root>/<stage>)
+  --overwrite           allow replacing a completed run in --out
+  -v, --verbose
+  --preset {smoke,pilot,full}
+  --run
+  --baselines-only      skip trained models (no torch needed)
+  --targets TARGETS [TARGETS ...]
+                        restrict to these target ids (split a long run across
+                        processes; parts are resumable)
+===== 4. LAUNCH FULL POISONING RUN =====
+Full matrix may take many hours. Output directory: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/audit/full_poisoning_20261028T223445Z/full
+01:34:47 INFO PLAN {"preset": "full", "attack_configs": 16, "episodes_per_target": 19200, "baseline_targets": 6, "model_targets": {"A_600k": 10, "A_legacy_150k": 10, "B_legacy_150k": 10}, "est_cpu_minutes": 659.2}
+01:36:04 INFO done baseline shortest_feasible
+01:37:15 INFO done baseline greedy_widest
+01:38:15 INFO done baseline shortest_feasible_k
+01:40:18 INFO done baseline util_weight_dijkstra
+01:41:08 INFO done baseline minhop
+01:42:29 INFO done baseline unit_weight_dijkstra
+Traceback (most recent call last):
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/scripts/x_07_poison_eval.py", line 110, in <module>
+    main()
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/scripts/x_07_poison_eval.py", line 106, in main
+    execute(cfg, a, net, sha)
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/scripts/x_07_poison_eval.py", line 82, in execute
+    rows = episode_rows(t, s, lambda sc, tele, cf: run_model(net, g, m, sc, telemetry=tele, counterfactual=cf))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/scripts/x_07_poison_eval.py", line 67, in episode_rows
+    m = runner(sc, tele, kind != "clean")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/scripts/x_07_poison_eval.py", line 82, in <lambda>
+    rows = episode_rows(t, s, lambda sc, tele, cf: run_model(net, g, m, sc, telemetry=tele, counterfactual=cf))
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/src/p2x/rollout.py", line 78, in run_model
+    obs, _, done, _, info = env.step(a)
+                            ^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/src/p2/envs.py", line 75, in step
+    obs = np.zeros(self.observation_space.shape, np.float32) if done else self._obs()
+                                                                          ^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/src/p2/envs.py", line 63, in _obs
+    return build_features(self.net, self.ep, self.last_obs_util, self.with_candidates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/src/p2/envs.py", line 27, in build_features
+    parts.append([float(resid_frac[e].min()), len(e) / net.max_candidate_hops])
+                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/src/p2/sim.py", line 86, in max_candidate_hops
+    return max(len(e) for c in self._cand.values() for _, e in c)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/src/p2/sim.py", line 86, in <genexpr>
+    return max(len(e) for c in self._cand.values() for _, e in c)
+               ^^^^^^
+KeyboardInterrupt
+Full poisoning evaluation exit code: 1
+===== 5. FINAL AUDIT =====
+code_tree_audit.txt  1325 bytes
+full/exit_code.txt  2 bytes
+full/manifest.json  2236 bytes
+full/parts/greedy_widest__-1.csv  6327413 bytes
+full/parts/minhop__-1.csv  5858385 bytes
+full/parts/shortest_feasible__-1.csv  6359045 bytes
+full/parts/shortest_feasible_k__-1.csv  6398232 bytes
+full/parts/unit_weight_dijkstra__-1.csv  6330863 bytes
+full/parts/util_weight_dijkstra__-1.csv  6484625 bytes
+full/run.log  3332 bytes
+master.log  7211 bytes
+x_07_help.txt  1746 bytes
+Evaluation exit code: 1
+Finished UTC: 2026-10-28T22:47:34+00:00
+Run directory: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/audit/full_poisoning_20261028T223445Z

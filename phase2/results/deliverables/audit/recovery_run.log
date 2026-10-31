@@ -1,0 +1,9 @@
+Phase 2 report recovery started: 2026-10-28T22:31:49.130056+00:00
+Verified checkpoints: 30/30
+Clean data: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/confirmatory_v1/episodes.csv; rows=72000; sha256=e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73
+Pilot data: /media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/poison_pilot_fresh/episodes.csv; rows=16500; sha256=990b21741f7d1ea3a60d506ad6f6467fdb74dd220e01d92b2c87fca98cfcefaf
+Included existing analysis: pilot_attack_summary.csv
+Included existing analysis: pilot_poison_effects.csv
+Included existing analysis: pilot_decision_flip_rates.csv
+SUCCESS: report written to /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/FINAL_REPORT.md
+Recovery finished.

@@ -1,0 +1,118 @@
+START_UTC: 2026-10-29T16:30:18.620548+00:00
+PROJECT_ROOT: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation
+REPORT_DIR: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/FINAL_DELIVERABLES/audit/comprehensive_review_20261029T163018Z
+STAGE: Full Phase 2 test suite
+TEST_EXIT_CODE: 0
+STAGE: Read-only protocol and runner review
+REVIEWED: phase2/docs/02_EXPERIMENT_PROTOCOL.md (37 lines)
+REVIEWED: phase2/docs/THREAT_MODEL.md (22 lines)
+REVIEWED: phase2/scripts/x_05_freeze.py (53 lines)
+NOT_FOUND: phase2/scripts/x_06_confirmatory.py
+REVIEWED: phase2/scripts/x_07_poison_eval.py (110 lines)
+REVIEWED: phase2/scripts/x_08_analyze.py (46 lines)
+REVIEWED: phase2/src/p2x/parts.py (64 lines)
+REVIEWED: phase2/src/p2x/manifest.py (129 lines)
+REVIEWED: phase2/src/p2x/config.py (158 lines)
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:14: | E6 | E | Confirmatory clean comparison on a fresh set | `x_05_freeze.py --yes` -> `x_06_confirmatory_eval.py` -> `x_08_analyze.py --stage confirmatory` | ~35-60 min | The only confirmatory evidence | Primary family P1-P4 x 4 loads, Holm; no tuning afterwards |
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:15: | E7a | F | Does the poisoning pipeline run and keep invariants? | `x_07_poison_eval.py --preset smoke --run` | ~seconds | Pipeline check (numbers uninterpretable) | Stop on any InvariantViolation |
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:16: | E7b | F | Pilot effect sizes | `x_07_poison_eval.py --preset pilot --run` | ~12 min (plan) | Medium | Only after E6; matrix is NOT edited afterwards |
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:17: | E7c | F | Full matrix | `x_07_poison_eval.py --preset full --run` (split with `--targets`) | ~11 h single core (plan) | Primary Stage F evidence | Claim policy in THREAT_MODEL |
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:19: ## What is exploratory vs confirmatory
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:21: * **Confirmatory (fresh seeds 30,000,000..30,000,499, evaluated once after freeze):** primary family per load: P1 A_600k - shortest_feasible; P2 A_600k - minhop; P3 B_legacy - unit_weight_dijkstra (B's correct null); P4 util_weight_dijkstra - unit_weight_dijkstra (independent test of the heuristic selected on val_v2). Secondary rows (e.g. A vs A_legacy, K-restricted baseline) are exploratory.
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:25: Effects in percentage points. For every comparison three intervals: scenario-only (conditional on these trained models), across-model-seed (t), crossed bootstrap (models and scenarios resampled; slightly conservative). Primary: Holm-adjusted bootstrap p, Bonferroni-adjusted crossed CI. Model-vs-model contrasts treat the reference ensemble as its per-scenario average (independent trainings are not paired). Loads share scenario seeds, so each load is analysed separately. With only 10 training seeds the across-seed uncertainty is itself imprecise.
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:36: | Stage E | freeze written; LOCK absent; `x_04` runs (if used) all show `meta.json` with `stop_reason` recorded |
+KEYWORD phase2/docs/02_EXPERIMENT_PROTOCOL.md:37: | Stage F | confirmatory manifest `status=completed`; `invariants.all_replay_ok` and `all_caps_ok` true; `max_delta_over_budget <= 1e-9` |
+KEYWORD phase2/docs/THREAT_MODEL.md:21: **Primary tests (Holm over 4 cells):** targets A_600k and B_legacy_150k x {conceal_topk, fake_topk} at eps 0.2, load 2.0: attacked-minus-random_sign contrast. **"Attack success" is claimed only if** the crossed CI of (attacked - clean) excludes 0 *and* the contrast vs random_sign excludes 0 after Holm. Everything else is exploratory.
+KEYWORD phase2/scripts/x_05_freeze.py:2: """Stage D->E gate. Records, BEFORE any confirmatory evaluation, exactly what will be tested: config hash, core-code hash, topology hash,
+KEYWORD phase2/scripts/x_05_freeze.py:3: checkpoint hashes (per agent id / seed), and the selected heuristic. x_06 refuses to run without a matching freeze; after the confirmatory
+KEYWORD phase2/scripts/x_05_freeze.py:4: LOCK exists the freeze can no longer be replaced. Read-only on models. Requires --yes."""
+KEYWORD phase2/scripts/x_05_freeze.py:11: from p2x.config import agent_models_dir, atomic_write_text, freeze_path, lock_path, results_dir, sha256_file
+KEYWORD phase2/scripts/x_05_freeze.py:12: from p2x.manifest import core_code_sha256, env_versions
+KEYWORD phase2/scripts/x_05_freeze.py:17: for ag in cfg["confirmatory"]["agents"]:
+KEYWORD phase2/scripts/x_05_freeze.py:33: return dict(created_utc=datetime.now(timezone.utc).isoformat(timespec="seconds"), config_sha256=cfg["_sha256"], core_code_sha256=core_code_sha256(),
+KEYWORD phase2/scripts/x_05_freeze.py:44: if lock_path(cfg, cfg["confirmatory"]["run_id"]).is_file(): cli.die("confirmatory LOCK exists: the freeze can no longer be changed")
+KEYWORD phase2/scripts/x_05_freeze.py:45: if fp.is_file() and not a.overwrite: cli.die(f"{fp} exists; pass --overwrite only if NO confirmatory data has been looked at")
+KEYWORD phase2/scripts/x_07_poison_eval.py:2: """Stage F - TEST-TIME TELEMETRY POISONING (prepared; DRY RUN by default, --run to execute). Threat model: docs/THREAT_MODEL.md.
+KEYWORD phase2/scripts/x_07_poison_eval.py:5: Gates: presets 'pilot'/'full' need a valid freeze AND a completed confirmatory run (attack matrix is predeclared in the frozen config; no tuning).
+KEYWORD phase2/scripts/x_07_poison_eval.py:16: from p2x.parts import merge_parts, part_name, verify_freeze, write_part
+KEYWORD phase2/scripts/x_07_poison_eval.py:25: p = cfg["poisoning"]["presets"][preset]
+KEYWORD phase2/scripts/x_07_poison_eval.py:26: cfgs = [("clean", 0.0)] + [(k, e) for k in cfg["poisoning"]["attacks"] for e in p["eps"]]
+KEYWORD phase2/scripts/x_07_poison_eval.py:32: nb = len(base_targets if base_targets is not None else cfg["poisoning"]["targets_baselines"]); est = nb * n_ep * COST_S["baseline"]
+KEYWORD phase2/scripts/x_07_poison_eval.py:34: g = next(a["agent"] for a in cfg["confirmatory"]["agents"] if a["id"] == aid); est += len(seeds) * n_ep * COST_S[f"model_{g}"]
+KEYWORD phase2/scripts/x_07_poison_eval.py:39: P = cfg["poisoning"]; p, cfgs = matrix_of(cfg, a.preset); smoke = a.preset == "smoke"; k = P["k_edges"]
+KEYWORD phase2/scripts/x_07_poison_eval.py:40: ids = {x["id"]: x for x in cfg["confirmatory"]["agents"]}
+KEYWORD phase2/scripts/x_07_poison_eval.py:47: fr = verify_freeze(cfg, freeze_path(cfg), sha, ROOT)
+KEYWORD phase2/scripts/x_07_poison_eval.py:50: cm = results_dir(cfg, cfg["confirmatory"]["run_id"], "manifest.json")
+KEYWORD phase2/scripts/x_07_poison_eval.py:51: if not cm.is_file() or json.loads(cm.read_text()).get("status") != "completed":
+KEYWORD phase2/scripts/x_07_poison_eval.py:52: cli.die("confirmatory evaluation has not completed; poisoning is gated on a finished clean stage")
+KEYWORD phase2/scripts/x_07_poison_eval.py:60: out = a.out or results_dir(cfg, f"poison_{a.preset}"); parts = out / "parts"; parts.mkdir(parents=True, exist_ok=True)
+KEYWORD phase2/scripts/x_07_poison_eval.py:70: scenario_idx=i, scenario_seed=sc.seed, load=L, **m))
+KEYWORD phase2/scripts/x_07_poison_eval.py:72: with RunManifest(out / "manifest.json", f"x_07_poison_eval[{a.preset}]", cfg, vars(a), seeds={"scenarios": f"{p['range']}[0:{p['n_per_load']}) x loads {p['loads']}"},
+KEYWORD phase2/scripts/x_07_poison_eval.py:73: extra={"topology_sha256": sha, "plan": pl, "heuristic": heur, "status_of_results": "pipeline check only" if smoke else "pre-declared Stage F run"}) as mf:
+KEYWORD phase2/scripts/x_07_poison_eval.py:83: if hash_fn(m) != h0: raise InvariantViolation(f"model parameters changed during poisoned evaluation: {t} seed {s}")
+KEYWORD phase2/scripts/x_07_poison_eval.py:84: for r in rows: r["param_sha_prefix"] = h0[:12]; r["param_unchanged"] = True
+KEYWORD phase2/scripts/x_07_poison_eval.py:86: n = merge_parts(parts, out / "episodes.csv"); mf.add_output(out / "episodes.csv"); mf.set("n_rows", n)
+KEYWORD phase2/scripts/x_07_poison_eval.py:90: mf.set("invariants", dict(all_replay_ok=all(r["replay_ok"] == "True" for r in R), all_caps_ok=all(r["caps_ok"] == "True" for r in R),
+KEYWORD phase2/scripts/x_08_analyze.py:2: """Analysis of confirmatory / poison episode tables (pandas+numpy; no torch). Effects in PERCENTAGE POINTS of accepted_offered_ratio.
+KEYWORD phase2/scripts/x_08_analyze.py:3: Primary family (config confirmatory.primary_family; per load): Holm-adjusted bootstrap p-values and Bonferroni-adjusted crossed-bootstrap CIs.
+KEYWORD phase2/scripts/x_08_analyze.py:17: ap.add_argument("--stage", choices=["confirmatory", "poison"], required=True); ap.add_argument("--run-dir", type=Path, default=None, help="directory containing episodes.csv")
+KEYWORD phase2/scripts/x_08_analyze.py:21: run = a.run_dir or (results_dir(cfg, cfg["confirmatory"]["run_id"]) if a.stage == "confirmatory" else results_dir(cfg, f"poison_{a.preset}"))
+KEYWORD phase2/scripts/x_08_analyze.py:23: for c in ("replay_ok", "caps_ok"):
+KEYWORD phase2/scripts/x_08_analyze.py:25: out = cli.prepare_out(a.out or run / ("analysis" + ("_excl" + "-".join(map(str, a.exclude_model_seeds)) if a.exclude_model_seeds else "")), a.overwrite)
+KEYWORD phase2/scripts/x_08_analyze.py:26: c = cfg["confirmatory"]; rng = np.random.default_rng(c["bootstrap_seed"]); ex = tuple(a.exclude_model_seeds); B = c["bootstrap_B"]
+KEYWORD phase2/scripts/x_08_analyze.py:27: if a.stage == "confirmatory":
+KEYWORD phase2/scripts/x_08_analyze.py:32: pd.set_option("display.width", 250); cols = ["id", "test", "ref", "load", "mean_pp", "ci_scen_lo", "ci_scen_hi", "ci_cross_bonf_lo", "ci_cross_bonf_hi", "p_holm", "reject_holm_alpha"]
+KEYWORD phase2/scripts/x_08_analyze.py:36: loads = sorted(df.load.unique()); P = cfg["poisoning"]; eps = sorted(df.eps.unique()); eps = [e for e in eps if e > 0]
+KEYWORD phase2/scripts/x_08_analyze.py:37: t = analysis.poison_tables(df, sorted(df.method.unique()), P["attacks"], eps, loads, P["primary"], c["alpha"], B, rng, ex)
+KEYWORD phase2/scripts/x_08_analyze.py:38: t.to_csv(out / "poison_effects_pp.csv", index=False)
+KEYWORD phase2/scripts/x_08_analyze.py:41: log.info("claim policy: 'attack success' requires the crossed CI of (attacked - clean) to exclude 0 AND the contrast vs random_sign to exclude 0 (Holm over the primary cells); everything else is exploratory")
+KEYWORD phase2/src/p2x/parts.py:29: def merge_parts(parts_dir: Path, out_csv: Path) -> int:
+KEYWORD phase2/src/p2x/parts.py:47: def verify_freeze(cfg, freeze_file: Path, ned_sha: str, root: Path):
+KEYWORD phase2/src/p2x/parts.py:49: from .manifest import core_code_sha256
+KEYWORD phase2/src/p2x/parts.py:57: if fr["core_code_sha256"] != core_code_sha256():
+KEYWORD phase2/src/p2x/manifest.py:1: """Experiment manifest: config, seeds, code revision, environment, inputs, outputs, status. Stdlib only."""
+KEYWORD phase2/src/p2x/manifest.py:41: def core_code_sha256() -> str:
+KEYWORD phase2/src/p2x/manifest.py:76: dirty = subprocess.run(["git", "-C", str(root), "status", "--porcelain"], capture_output=True, text=True, timeout=10)
+KEYWORD phase2/src/p2x/manifest.py:88: "name": name, "status": "running",
+KEYWORD phase2/src/p2x/manifest.py:92: "seeds": seeds or {}, "git": git_revision(), "code_tree_sha256": core_code_sha256(),
+KEYWORD phase2/src/p2x/manifest.py:122: self.d["status"] = "completed"
+KEYWORD phase2/src/p2x/manifest.py:126: self.d["status"] = "failed"
+KEYWORD phase2/src/p2x/config.py:65: for role in ("development", "confirmatory", "poison"):
+KEYWORD phase2/src/p2x/config.py:71: ("confirmatory", "n_per_load", cfg["confirmatory"]["range"]))
+KEYWORD phase2/src/p2x/config.py:75: for name, p in cfg["poisoning"]["presets"].items():
+KEYWORD phase2/src/p2x/config.py:78: raise ConfigError(f"poison preset {name}: n_per_load exceeds range {p['range']}")
+KEYWORD phase2/src/p2x/config.py:80: raise ConfigError(f"poison preset {name}: range {p['range']} not allowed for role {p['role']}")
+KEYWORD phase2/src/p2x/config.py:87: ids = {a["id"] for a in cfg["confirmatory"]["agents"]} | set(cfg["confirmatory"]["baselines"])
+KEYWORD phase2/src/p2x/config.py:88: for c in cfg["confirmatory"]["primary_family"] + cfg["confirmatory"]["secondary"]:
+KEYWORD phase2/src/p2x/config.py:107: "This guard prevents development decisions on confirmatory/test seeds.")
+KEYWORD phase2/src/p2x/config.py:135: def lock_path(cfg, run_id: str) -> Path:
+KEYWORD phase2/src/p2x/config.py:136: return results_dir(cfg, run_id, "LOCK.json")
+KEYWORD phase2/src/p2x/config.py:156: """Checkpoint directory of a confirmatory agent entry. Legacy layout is results/models/<agent>/seed<N>/, new runs use <models_dir>/seed<N>/."""
+CONFIG_SHA256: 2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec
+CURRENT_CORE_CODE_SHA256: ffa672221400ab3cb053a661a1b50ad8bbe37d07d199726b905c73e7fb62aaa4
+FREEZE_PATH: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/freeze.json
+LOCK_PATH: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/confirmatory_v1/LOCK.json
+LOCK_EXISTS: False
+FREEZE_CREATED_UTC: 2026-10-28T13:03:15+00:00
+FREEZE_CONFIG_MATCH: True
+FREEZE_CODE_MATCH: False
+FREEZE_TOPOLOGY_MATCH: True
+FREEZE_CHECKPOINTS_MATCH: True
+FREEZE_VALID_FOR_CURRENT_SOURCE: False
+BLOCKER: Frozen code/config/topology/checkpoint gate is not satisfied. Do not overwrite the historical freeze.
+CONFIRMATORY_MANIFEST_STATUS: completed
+HISTORICAL_OUTPUT_HASH_MATCH: True: /media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/confirmatory_v1/episodes.csv
+HISTORICAL_CONFIRMATORY_OUTPUTS_VALID: True
+STAGE: Read-only poisoning output audit
+STAGE: Execution readiness decision
+NEXT_ACTION: Create a separately versioned experiment configuration and results root. Review protocol and lock semantics; preserve old freeze/results. Freeze the new source/config/checkpoints and run a fresh clean confirmation.
+EXECUTION_STARTED: False
+HISTORICAL_RESULTS_MODIFIED: False
+FREEZE_MODIFIED: False
+REPORT_FILE: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/FINAL_DELIVERABLES/audit/comprehensive_review_20261029T163018Z/report.txt
+
+ISSUES:
+BLOCKER: Frozen code/config/topology/checkpoint gate is not satisfied. Do not overwrite the historical freeze.
+
+NEXT_ACTION:
+Create a separately versioned experiment configuration and results root. Review protocol and lock semantics; preserve old freeze/results. Freeze the new source/config/checkpoints and run a fresh clean confirmation.

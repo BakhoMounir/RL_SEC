@@ -1,0 +1,26 @@
+.........................................F.............................. [ 88%]
+......FFF                                                                [100%]
+=================================== FAILURES ===================================
+___________ test_episode_metrics_clamp_floating_point_ratio_boundary ___________
+phase2/tests/test_x_policies_telemetry.py:100: in test_episode_metrics_clamp_floating_point_ratio_boundary
+    assert m["delivery_ratio"] == 0.0
+E   assert -7.468715291565051e-17 == 0.0
+________________ test_merge_parts_requires_exact_expected_files ________________
+phase2/tests/test_x_stats_train_manifest.py:172: in test_merge_parts_requires_exact_expected_files
+    assert merge_parts(parts, out, expected_parts=[a, b]) == 2
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: merge_parts() got an unexpected keyword argument 'expected_parts'
+______________ test_merge_parts_rejects_empty_and_malformed_parts ______________
+phase2/tests/test_x_stats_train_manifest.py:194: in test_merge_parts_rejects_empty_and_malformed_parts
+    merge_parts(parts, tmp_path / "out.csv", expected_parts=[empty.name])
+E   TypeError: merge_parts() got an unexpected keyword argument 'expected_parts'
+______________ test_merge_parts_rejects_duplicate_expected_names _______________
+phase2/tests/test_x_stats_train_manifest.py:210: in test_merge_parts_rejects_duplicate_expected_names
+    merge_parts(parts, tmp_path / "out.csv", expected_parts=[name, name])
+E   TypeError: merge_parts() got an unexpected keyword argument 'expected_parts'
+=========================== short test summary info ============================
+FAILED phase2/tests/test_x_policies_telemetry.py::test_episode_metrics_clamp_floating_point_ratio_boundary
+FAILED phase2/tests/test_x_stats_train_manifest.py::test_merge_parts_requires_exact_expected_files
+FAILED phase2/tests/test_x_stats_train_manifest.py::test_merge_parts_rejects_empty_and_malformed_parts
+FAILED phase2/tests/test_x_stats_train_manifest.py::test_merge_parts_rejects_duplicate_expected_names
+4 failed, 77 passed in 14.38s

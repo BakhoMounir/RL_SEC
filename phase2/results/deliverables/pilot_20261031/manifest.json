@@ -1,0 +1,151 @@
+{
+  "name": "x_07_poison_eval[pilot]",
+  "status": "completed",
+  "started_utc": "2026-10-31T12:27:15+00:00",
+  "config_path": "phase2/configs/x_experiments.json",
+  "config_sha256": "2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec",
+  "args": {
+    "config": "phase2/configs/x_experiments.json",
+    "out": "FINAL_DELIVERABLES/pilot_20261031",
+    "overwrite": false,
+    "verbose": true,
+    "preset": "pilot",
+    "run": true,
+    "baselines_only": false,
+    "targets": null
+  },
+  "seeds": {
+    "scenarios": "test_poison_v2[0:100) x loads [2.0]"
+  },
+  "git": {
+    "commit": "8884d1a3a4a68e2945eb71ea2c7fef3d803cbb17",
+    "dirty": true
+  },
+  "code_tree_sha256": "2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.2",
+    "pytest": "8.4.2"
+  },
+  "inputs": {},
+  "outputs": {
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/pilot_20261031/episodes.csv": "990b21741f7d1ea3a60d506ad6f6467fdb74dd220e01d92b2c87fca98cfcefaf"
+  },
+  "extra": {
+    "topology_sha256": "fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e",
+    "plan": {
+      "preset": "pilot",
+      "attack_configs": 11,
+      "episodes_per_target": 1100,
+      "baseline_targets": 6,
+      "model_targets": {
+        "A_600k": 3,
+        "A_legacy_150k": 3,
+        "B_legacy_150k": 3
+      },
+      "est_cpu_minutes": 12.1
+    },
+    "heuristic": {
+      "p": 1.0,
+      "floor": 0.1,
+      "infeasible_multiplier": 1.0
+    },
+    "status_of_results": "pre-declared Stage F run",
+    "expected_rows_per_target": 1100,
+    "expected_parts": [
+      "A_600k__42.csv",
+      "A_600k__43.csv",
+      "A_600k__44.csv",
+      "A_legacy_150k__42.csv",
+      "A_legacy_150k__43.csv",
+      "A_legacy_150k__44.csv",
+      "B_legacy_150k__42.csv",
+      "B_legacy_150k__43.csv",
+      "B_legacy_150k__44.csv",
+      "greedy_widest__-1.csv",
+      "minhop__-1.csv",
+      "shortest_feasible__-1.csv",
+      "shortest_feasible_k__-1.csv",
+      "unit_weight_dijkstra__-1.csv",
+      "util_weight_dijkstra__-1.csv"
+    ],
+    "n_rows": 16500,
+    "invariants": {
+      "all_replay_ok": true,
+      "all_caps_ok": true,
+      "max_delta_over_budget": 5.551115123125783e-17
+    },
+    "validated_target_seed_pairs": [
+      [
+        "A_600k",
+        42
+      ],
+      [
+        "A_600k",
+        43
+      ],
+      [
+        "A_600k",
+        44
+      ],
+      [
+        "A_legacy_150k",
+        42
+      ],
+      [
+        "A_legacy_150k",
+        43
+      ],
+      [
+        "A_legacy_150k",
+        44
+      ],
+      [
+        "B_legacy_150k",
+        42
+      ],
+      [
+        "B_legacy_150k",
+        43
+      ],
+      [
+        "B_legacy_150k",
+        44
+      ],
+      [
+        "greedy_widest",
+        -1
+      ],
+      [
+        "minhop",
+        -1
+      ],
+      [
+        "shortest_feasible",
+        -1
+      ],
+      [
+        "shortest_feasible_k",
+        -1
+      ],
+      [
+        "unit_weight_dijkstra",
+        -1
+      ],
+      [
+        "util_weight_dijkstra",
+        -1
+      ]
+    ]
+  },
+  "wall_s": 591.9,
+  "finished_utc": "2026-10-31T12:37:07+00:00"
+}

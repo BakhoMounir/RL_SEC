@@ -1,0 +1,15 @@
+FINAL ANALYSIS START
+UTC=2026-10-28T22:30:10.024977+00:00
+freeze_sha256=0747e439645597b7eec67c00d02375406e33f2ee03b0caafd98183f272f97733
+confirmatory_manifest_status=completed
+confirmatory_csv=/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/confirmatory_v1/episodes.csv
+confirmatory_sha256=e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73
+confirmatory_expected_sha256=None
+pilot_csv=/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/poison_pilot_fresh/episodes.csv
+pilot_sha256=990b21741f7d1ea3a60d506ad6f6467fdb74dd220e01d92b2c87fca98cfcefaf
+pilot_expected_sha256=990b21741f7d1ea3a60d506ad6f6467fdb74dd220e01d92b2c87fca98cfcefaf
+CSV /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/tables/checkpoint_verification.csv rows=30 sha256=d30dca0b293df21a0b3f68e2bcc6bf5fd2ce0f4c9c12100df813655949652c98
+clean_rows=72000 clean_columns=['method', 'model_seed', 'scenario_idx', 'scenario_seed', 'load', 'offered_volume', 'accepted_volume', 'accepted_offered_ratio', 'blocked_volume_ratio', 'flows_fully_blocked', 'flows_partially_admitted', 'max_utilization', 'mean_utilization', 'saturated_links', 'mean_hops_accepted', 'capacity_hops_used', 'mean_hops_per_flow', 'replay_ok', 'caps_ok', 'frac_route_is_minhop_cand0', 'action_hist']
+pilot_rows=16500 pilot_columns=['method', 'model_seed', 'attack', 'kind', 'eps', 'k_edges', 'scenario_idx', 'scenario_seed', 'load', 'offered_volume', 'accepted_volume', 'accepted_offered_ratio', 'blocked_volume_ratio', 'flows_fully_blocked', 'flows_partially_admitted', 'max_utilization', 'mean_utilization', 'saturated_links', 'mean_hops_accepted', 'capacity_hops_used', 'mean_hops_per_flow', 'replay_ok', 'caps_ok', 'frac_route_is_minhop_cand0', 'tele_n_obs', 'tele_max_abs_delta', 'tele_mean_abs_delta', 'tele_frac_obs_changed', 'action_hist', 'param_sha_prefix', 'param_unchanged', 'frac_decisions_flipped']
+SKIP clean acceptance plot: accepted/offered columns not found
+FATAL: ValueError: invalid error value specified

@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-10-29T16:30:32.315563+00:00",
+  "tests_pass": true,
+  "freeze_valid_for_current_source": false,
+  "historical_confirmatory_outputs_valid": true,
+  "issues": [
+    "BLOCKER: Frozen code/config/topology/checkpoint gate is not satisfied. Do not overwrite the historical freeze."
+  ],
+  "next_action": "Create a separately versioned experiment configuration and results root. Review protocol and lock semantics; preserve old freeze/results. Freeze the new source/config/checkpoints and run a fresh clean confirmation."
+}

@@ -1,0 +1,42 @@
+=== PHASE 2 PRE-EXPERIMENT GATE ===
+Thu Oct 29 04:39:29 PM UTC 2026
+Repository: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation
+Report: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/FINAL_DELIVERABLES/audit/preexperiment_gate_20261029T163929Z/report.txt
+
+=== 1. Verify environment ===
+Python: 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]
+torch: 2.11.0+cu128
+gymnasium: 1.4.0
+stable_baselines3: 2.9.0
+networkx: 3.6.1
+pytest: 8.4.2
+CUDA available: True
+
+=== 2. Run full test suite ===
+........................................................................ [ 96%]
+...                                                                      [100%]
+75 passed in 11.90s
+
+=== 3. Run static audit ===
+[INFO      ] C06 (medium) Training-environment version drift among shipped checkpoints
+              environment groups: {}; requirements.txt claims 'exact versions used to produce the shipped results' and pins: . Local environment NOT inspected here (scripts/x_01_check_env_and_checkpoints.py does that). Retraining under another torch/SB3 build is not bit-reproducible.
+[OK        ] C09 (high) Seed ranges disjoint: legacy train/val/test vs new val_v2 / confirmatory / poison
+              validated ranges: {'train_online': [0, 1000000], 'val_calibration_v1': [10000000, 10000100], 'val_selection_v1': [10001000, 10001025], 'test_firstlook_v1': [20000000, 20000200], 'val_v2': [11000000, 11000050], 'test_confirmatory_v2': [30000000, 30000500], 'test_poison_v2': [40000000, 40000300]}
+[CONFIRMED ] C11 (medium) Metric named 'delivery_ratio' (risk of being read as packet delivery ratio)
+              occurrences: {'src/p2/sim.py': 3}. Existing CSV/column names are preserved; all NEW outputs use 'accepted_offered_ratio' (accepted/offered traffic VOLUME).
+[CONFIRMED ] C12 (high) Baselines bypass the Telemetry channel in the existing evaluation; Telemetry has no per-episode RNG/seed hook
+              eval_clean.run_baseline passes ep.true_util() directly=True; Telemetry.observe(true_util) only. Poisoned controls therefore need the new runner (src/p2x/rollout.py) with per-episode seeded telemetry (src/p2x/telemetry.py).
+[OK        ] C13 (medium) Statistical reporting limits in analyze_clean.py
+              none detected
+[UNVERIFIED] C15 (high) Dataset license and identity of the NED
+              Provenance file says: fork copy, not verified against the official BNN-UPC archive, dataset license NOT verified, GEANT2 unavailable. Nothing on disk can resolve this; see docs/04_PROVENANCE_ACTIONS.md.
+[UNVERIFIED] C16 (high) Agent B checkpoint behaviour (action saturation, policy std, weight distribution, route selection)
+              Checkpoints are binary and cannot be inspected statically. Run scripts/x_02_diag_checkpoints.py --agent enhance.
+
+wrote /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/static_audit/static_audit.json
+
+=== 4. Verify environment and checkpoints ===
+19:39:49 ERROR missing models directory: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/models
+
+BLOCKED: Environment/checkpoint verification failed.
+Report: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/FINAL_DELIVERABLES/audit/preexperiment_gate_20261029T163929Z/report.txt

@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-28T20:58:42.961715+00:00",
+  "purpose": "Provenance for revised confirmatory analysis; does not alter the benchmark freeze.",
+  "benchmark_freeze_sha256": "0747e439645597b7eec67c00d02375406e33f2ee03b0caafd98183f272f97733",
+  "frozen_core_code_sha256": "2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714",
+  "analysis_inputs": {
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/configs/x_experiments.json": "2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec",
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/src/p2x/stats.py": "4349b4d6c03aeaae2df872f2a20c4eb6098926df1ea546f1f30a9c6b1df386e0",
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/src/p2x/analysis.py": "3e9da0feecf520cf0f1cccba0f00baaf09a5e2a5097799d11bc21d8628a643c0",
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/scripts/x_08_analyze.py": "29005ec3084f409f09811abb92d577b0815889590ff21b93416a8402edfb7b04"
+  },
+  "analysis_outputs": {
+    "primary_comparisons_pp.csv": "99fe1ea1e43857eefb57a57d1491bf30262dfc193abea71d67ea102867976a5c",
+    "secondary_comparisons_pp_EXPLORATORY.csv": "3818932f736cd7374b4991bc500ea18723971b79b3eb0ea999dff2270e6a9bdb",
+    "summary_by_method_load.csv": "14368b6c4643164816230c8bd5527936fa73d14d4eb3d5433f1a8ade1de15bb2"
+  },
+  "interpretation": {
+    "primary_family": "Predeclared confirmatory comparisons; Holm adjustment across computed primary tests.",
+    "secondary_family": "Exploratory comparisons; adjusted p-values are not primary confirmatory claims.",
+    "p_value_note": "p_boot is a legacy output column name; test_method identifies the actual test.",
+    "limitations": [
+      "The benchmark freeze records git=null.",
+      "Training checkpoints came from multiple recorded PyTorch builds.",
+      "Analysis provenance does not establish dataset redistribution rights."
+    ]
+  }
+}
