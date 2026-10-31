@@ -1,0 +1,77 @@
+PHASE 2 FINALIZATION
+Timestamp: 2026-10-31 13:20:44
+Project: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation
+
+[1] FREEZE
+Freeze file SHA256: 0747e439645597b7eec67c00d02375406e33f2ee03b0caafd98183f272f97733
+Recorded source hash: 2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714
+Historical target matches expected: True
+
+[2] CHECKPOINT INTEGRITY
+Checkpoint entries checked: 30; missing: 0; mismatched: 0
+
+[3] HISTORICAL SOURCE HASH RECOVERY
+Current source hash: f40d209577752f333c18dcbc8e15a7cf1d5e00d1ca691840150ccf7cb9d7cfca
+Matches historical hash: False
+Backup combinations tested: 27648
+NO EXACT HISTORICAL SOURCE RECONSTRUCTION FOUND.
+Historical freeze metadata and active source were left unchanged.
+
+[4] CONFIGURATION AND TOPOLOGY
+config_sha256: MATCH /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/configs/x_experiments.json, /media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/configs/x_experiments.json
+topology_sha256: MATCH /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/data/raw/nsfnetbw_fork/Network_nsfnetbw.ned, /media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/data/raw/nsfnetbw_fork/Network_nsfnetbw.ned
+
+[5] CONFIRMATORY DATASET
+CSV exists: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/confirmatory_v1/episodes.csv
+CSV SHA256: e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73
+Rows: 72000
+Columns: ['method', 'model_seed', 'scenario_idx', 'scenario_seed', 'load', 'offered_volume', 'accepted_volume', 'accepted_offered_ratio', 'blocked_volume_ratio', 'flows_fully_blocked', 'flows_partially_admitted', 'max_utilization', 'mean_utilization', 'saturated_links', 'mean_hops_accepted', 'capacity_hops_used', 'mean_hops_per_flow', 'replay_ok', 'caps_ok', 'frac_route_is_minhop_cand0', 'action_hist']
+Duplicate full rows: 0
+Missing cells: 32000
+
+[6] PYTEST
+........................................................................ [ 96%]
+...                                                                      [100%]
+75 passed in 12.91s
+
+Pytest exit code: 0
+
+[7] GIT STATUS
+ M phase2/results/v2/diag_checkpoints_enhance/per_model.csv
+ M phase2/results/v2/diag_checkpoints_replace/per_model.csv
+ M phase2/results/v2/env_check/checkpoint_integrity.csv
+ M phase2/results/v2/static_audit/static_audit.json
+ M phase2/src/p2/sim.py
+ M phase2/tests/test_x_policies_telemetry.py
+?? FINAL_COMPLETION_LOG.txt
+?? FINAL_COMPLETION_REPORT.txt
+?? FINAL_DELIVERABLES/
+?? PHASE2_FINAL_DELIVERABLES_20261028T223309Z.zip
+?? phase2/FINAL_DELIVERABLES/
+?? phase2/configs/x_experiments_local.json
+?? phase2/research_review/
+?? phase2/results/v2/FINAL_AUDIT_LOG.txt
+?? phase2/results/v2/FINAL_AUDIT_REPORT.md
+?? phase2/results/v2/agent_a_600k_verification/
+?? phase2/results/v2/confirmatory_v1/manifest.json
+?? phase2/results/v2/diag_enhance_local/
+?? phase2/results/v2/diag_replace_local/
+?? phase2/results/v2/env_check_600k_local/
+?? phase2/results/v2/env_check_local/
+?? phase2/results/v2/figures_final/
+?? phase2/results/v2/freeze.json
+?? phase2_missing_files.log
+?? phase2_routing_poisoning_project_dossier_and_review_prompt.md
+?? phase2_test_diagnostic.log
+?? restore_log.txt
+
+
+[8] FINAL CLASSIFICATION
+Freeze metadata: PASS
+Checkpoint integrity: PASS
+Historical source identity: UNRESOLVED
+Pytest: PASS
+No historical freeze, checkpoint, or benchmark CSV was modified.
+
+Still requiring separate evidence: dataset provenance/redistribution rights,
+and a safe independent poisoning-evaluation runner audit before any poisoning rerun.

@@ -1,0 +1,759 @@
+{
+  "audit_name": "Phase 2 Pre-Poisoning Gate",
+  "timestamp_utc": "20261031T103333Z",
+  "repository": "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation",
+  "audit_directory": "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/audit/pre_poisoning_gate_20261031T103333Z",
+  "gate_status": "BLOCKED",
+  "counts": {
+    "PASS": 27,
+    "REVIEW": 10,
+    "FAIL": 4
+  },
+  "checks": [
+    {
+      "check": "manifest:diag_checkpoints_enhance/per_model.csv",
+      "status": "PASS",
+      "message": "SHA-256 verified: 5e918f5e2991681b0d61be14fe59e81011f9b30803330fb13413cf16117bba20"
+    },
+    {
+      "check": "manifest:diag_enhance_local/per_model.csv",
+      "status": "PASS",
+      "message": "SHA-256 verified: c96a859a7da5af37966c6a2e4456a58b5424eebf2c681c2284a1187f4432f3f5"
+    },
+    {
+      "check": "manifest:diag_checkpoints_replace/per_model.csv",
+      "status": "PASS",
+      "message": "SHA-256 verified: 46a46ca578b1173e96bc7d3b95984da12fe9a2a2bf786865f743584b65667510"
+    },
+    {
+      "check": "manifest:diag_replace_local/per_model.csv",
+      "status": "PASS",
+      "message": "SHA-256 verified: f7855d00fd751f0470a21064382a614b42aa495a71d0b19dbd675534d0b7dfee"
+    },
+    {
+      "check": "manifest:env_check/checkpoint_integrity.csv",
+      "status": "PASS",
+      "message": "SHA-256 verified: 3ec3b2168acc49aba757f592f4da305e7d19b0b7caae70dad6454a60c5e4eb55"
+    },
+    {
+      "check": "manifest:env_check_local/checkpoint_integrity.csv",
+      "status": "PASS",
+      "message": "SHA-256 verified: 3ec3b2168acc49aba757f592f4da305e7d19b0b7caae70dad6454a60c5e4eb55"
+    },
+    {
+      "check": "restored:diag_checkpoints_enhance/per_model.csv",
+      "status": "PASS",
+      "message": "Current file matches verified original hash"
+    },
+    {
+      "check": "source:diag_checkpoints_enhance/per_model.csv",
+      "status": "PASS",
+      "message": "Handover source matches expected hash"
+    },
+    {
+      "check": "backup:diag_checkpoints_enhance/per_model.csv",
+      "status": "PASS",
+      "message": "Previous version preserved; SHA-256=0a68a4df13734cb0e5ac27a6e3d156181f4065727a2a389aeb59e1e4cfd69bf9"
+    },
+    {
+      "check": "restored:diag_checkpoints_replace/per_model.csv",
+      "status": "PASS",
+      "message": "Current file matches verified original hash"
+    },
+    {
+      "check": "source:diag_checkpoints_replace/per_model.csv",
+      "status": "PASS",
+      "message": "Handover source matches expected hash"
+    },
+    {
+      "check": "backup:diag_checkpoints_replace/per_model.csv",
+      "status": "PASS",
+      "message": "Previous version preserved; SHA-256=73bffbfe12286e85c765dbbac5e4666eec66f070bde58599b4603bb527ba50e1"
+    },
+    {
+      "check": "restored:env_check/checkpoint_integrity.csv",
+      "status": "PASS",
+      "message": "Current file matches verified original hash"
+    },
+    {
+      "check": "source:env_check/checkpoint_integrity.csv",
+      "status": "PASS",
+      "message": "Handover source matches expected hash"
+    },
+    {
+      "check": "backup:env_check/checkpoint_integrity.csv",
+      "status": "PASS",
+      "message": "Previous version preserved; SHA-256=48230d36e3faf868d23e71b9b0a4367c3fb2b762b5f681a8618dc35e11bcd240"
+    },
+    {
+      "check": "confirmatory_csv_hash",
+      "status": "PASS",
+      "message": "e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73"
+    },
+    {
+      "check": "confirmatory_required_columns",
+      "status": "FAIL",
+      "message": "Missing columns: ['agent', 'scenario_id', 'seed']"
+    },
+    {
+      "check": "confirmatory_row_count",
+      "status": "PASS",
+      "message": "Observed 72000; expected historical benchmark count 72000"
+    },
+    {
+      "check": "confirmatory_duplicate_keys",
+      "status": "FAIL",
+      "message": "71996"
+    },
+    {
+      "check": "confirmatory_missing_required",
+      "status": "FAIL",
+      "message": "72000"
+    },
+    {
+      "check": "confirmatory_replay",
+      "status": "PASS",
+      "message": "bad rows=0"
+    },
+    {
+      "check": "confirmatory_capacity",
+      "status": "PASS",
+      "message": "bad rows=0"
+    },
+    {
+      "check": "confirmatory_delivery_ratio",
+      "status": "PASS",
+      "message": "materially out-of-range rows=0"
+    },
+    {
+      "check": "freeze:phase2/results/v2/freeze.json",
+      "status": "REVIEW",
+      "message": "Freeze metadata readable; immutable verification still requires the original freeze verifier and its exact historical inputs"
+    },
+    {
+      "check": "freeze:FINAL_DELIVERABLES/metadata/freeze.json",
+      "status": "REVIEW",
+      "message": "Freeze metadata readable; immutable verification still requires the original freeze verifier and its exact historical inputs"
+    },
+    {
+      "check": "git_head",
+      "status": "PASS",
+      "message": "8884d1a3a4a68e2945eb71ea2c7fef3d803cbb17"
+    },
+    {
+      "check": "git_worktree",
+      "status": "REVIEW",
+      "message": "Dirty"
+    },
+    {
+      "check": "pytest_full_suite",
+      "status": "FAIL",
+      "message": "Exit code=2; log=/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/audit/pre_poisoning_gate_20261031T103333Z/pytest.log\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting phase2/tests/test_x_config_seeds.py _____________\nImportError while importing test module '/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/tests/test_x_config_seeds.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nphase2/tests/test_x_config_seeds.py:4: in <module>\n    from p2x import config as C\nE   ModuleNotFoundError: No module named 'p2x'\n____________ ERROR collecting phase2/tests/test_x_pipeline_stub.py _____________\nImportError while importing test module '/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/tests/test_x_pipeline_stub.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nphase2/tests/test_x_pipeline_stub.py:6: in <module>\n    from p2.sim import Network\nE   ModuleNotFoundError: No module named 'p2'\n__________ ERROR collecting phase2/tests/test_x_policies_telemetry.py __________\nImportError while importing test module '/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/tests/test_x_policies_telemetry.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nphase2/tests/test_x_policies_telemetry.py:3: in <module>\n    from p2.baselines import BASELINES\nE   ModuleNotFoundError: No module named 'p2'\n_________ ERROR collecting phase2/tests/test_x_stats_train_manifest.py _________\nImportError while importing test module '/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/tests/test_x_stats_train_manifest.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nphase2/tests/test_x_stats_train_manifest.py:4: in <module>\n    from p2x import analysis\nE   ModuleNotFoundError: No module named 'p2x'\n=========================== short test summary info ============================\nERROR phase2/tests/test_x_config_seeds.py\nERROR phase2/tests/test_x_pipeline_stub.py\nERROR phase2/tests/test_x_policies_telemetry.py\nERROR phase2/tests/test_x_stats_train_manifest.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!\n4 errors in 0.22s\n"
+    },
+    {
+      "check": "final_figures",
+      "status": "PASS",
+      "message": "7 PNG files found"
+    },
+    {
+      "check": "deliverables:FINAL_DELIVERABLES",
+      "status": "PASS",
+      "message": "129 files inventoried"
+    },
+    {
+      "check": "deliverables:phase2/FINAL_DELIVERABLES",
+      "status": "PASS",
+      "message": "14 files inventoried"
+    },
+    {
+      "check": "poison_run:poison_pilot",
+      "status": "REVIEW",
+      "message": "status=completed; manifest=FINAL_DELIVERABLES/audit/prewrite_20261029_190553/poison_pilot/manifest.json"
+    },
+    {
+      "check": "poison_run:poison_pilot_fresh",
+      "status": "REVIEW",
+      "message": "status=completed; manifest=FINAL_DELIVERABLES/audit/prewrite_20261029_190553/poison_pilot_fresh/manifest.json"
+    },
+    {
+      "check": "poison_run:full",
+      "status": "REVIEW",
+      "message": "status=failed; manifest=FINAL_DELIVERABLES/audit/full_poisoning_20261028T223445Z/full/manifest.json"
+    },
+    {
+      "check": "poison_run:poison_smoke",
+      "status": "REVIEW",
+      "message": "Not found at expected path"
+    },
+    {
+      "check": "poison_run:poison_A600k_seed42_exploratory",
+      "status": "REVIEW",
+      "message": "Not found at expected path"
+    },
+    {
+      "check": "documentation:DATASET_PROVENANCE.md",
+      "status": "PASS",
+      "message": "Exists; 1420 characters; review terms found=[]"
+    },
+    {
+      "check": "documentation:02_EXPERIMENT_PROTOCOL.md",
+      "status": "PASS",
+      "message": "Exists; 5564 characters; review terms found=[]"
+    },
+    {
+      "check": "documentation:SCIENTIFIC_REVIEW_CHECKLIST.md",
+      "status": "PASS",
+      "message": "Exists; 2468 characters; review terms found=[]"
+    },
+    {
+      "check": "runner:x_07_poison_eval.py",
+      "status": "REVIEW",
+      "message": "Not found"
+    },
+    {
+      "check": "runner:rollout.py",
+      "status": "REVIEW",
+      "message": "Source exists; output-part reuse, validation, and merge behavior require explicit code review"
+    }
+  ],
+  "details": [
+    {
+      "confirmatory": {
+        "rows": 72000,
+        "expected_rows": null,
+        "sha256": "e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73",
+        "duplicate_keys": 71996,
+        "missing_required": 72000,
+        "bad_replay": 0,
+        "bad_capacity": 0,
+        "ratio_outside_tolerance": 0,
+        "columns": [
+          "method",
+          "model_seed",
+          "scenario_idx",
+          "scenario_seed",
+          "load",
+          "offered_volume",
+          "accepted_volume",
+          "accepted_offered_ratio",
+          "blocked_volume_ratio",
+          "flows_fully_blocked",
+          "flows_partially_admitted",
+          "max_utilization",
+          "mean_utilization",
+          "saturated_links",
+          "mean_hops_accepted",
+          "capacity_hops_used",
+          "mean_hops_per_flow",
+          "replay_ok",
+          "caps_ok",
+          "frac_route_is_minhop_cand0",
+          "action_hist"
+        ]
+      }
+    },
+    {
+      "freeze_file": "phase2/results/v2/freeze.json",
+      "sha256": "0747e439645597b7eec67c00d02375406e33f2ee03b0caafd98183f272f97733",
+      "data": {
+        "created_utc": "2026-10-28T13:03:15+00:00",
+        "config_sha256": "2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec",
+        "core_code_sha256": "2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714",
+        "topology_sha256": "fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e",
+        "models": {
+          "A_legacy_150k": {
+            "42": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed42/best.zip",
+              "sha256": "b68c9e06de3108ba94e09f3bace45e1f75799cb025eb113827ae01915981244d",
+              "best_val": 0.8895770255384196,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "43": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed43/best.zip",
+              "sha256": "ec5ec639b509a6718e004500f90449b35132f4e23b1dc93192526d3eecb85f20",
+              "best_val": 0.8791412761411521,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "44": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed44/best.zip",
+              "sha256": "7cab64febb161071fc9828b48926b70315cd4dab95ab94c7e9c3b107f55f78a5",
+              "best_val": 0.8872430645809285,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "45": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed45/best.zip",
+              "sha256": "7c0c07b9d6ffdb96ffba3c64ad803ef6ecf751c5a9c456b8f5a7dcb09daa10dc",
+              "best_val": 0.8794111020480908,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "46": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed46/best.zip",
+              "sha256": "d14c15018ccfabbc233a04ff206bbc9a86f9aeff4f87aa0d898da4b7291dd5f5",
+              "best_val": 0.8916075497562312,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "47": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed47/best.zip",
+              "sha256": "968d1806f73b665b925a50c11ed89068b3f640acd10091d82d0d1dec53c30b80",
+              "best_val": 0.8812568102229237,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "48": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed48/best.zip",
+              "sha256": "26c84f71bc6c76e484252d06d5af4e4fe8da8cccc13c9f731b4f9e69adbdd023",
+              "best_val": 0.8798506260750826,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "49": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed49/best.zip",
+              "sha256": "bb4befabb21523dc3cb406f500c716222ce6977db2ee2372e85bcf9bacc7fbb1",
+              "best_val": 0.892030506457198,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "50": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed50/best.zip",
+              "sha256": "f9094aad096eede90e2f4448e46b35fff6593c00f1c952cb853435b7cbd3f70e",
+              "best_val": 0.8875406580876631,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "51": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed51/best.zip",
+              "sha256": "74cd47c842b831f9279c93568514a431351d1659ddd2964e1953a30c546b3f54",
+              "best_val": 0.889055163618207,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            }
+          },
+          "A_600k": {
+            "42": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed42/best.zip",
+              "sha256": "54dcf1e40665aa006381652fdec2980ec05b1e2cc67569e680dfa423a1b8ef11",
+              "best_val": 0.8957820026782107,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "43": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed43/best.zip",
+              "sha256": "e3a3761eb705e2e6f611e8de288aa2bf32c19ee9100a966db7fa5744a11f480a",
+              "best_val": 0.9030641647707367,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "44": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed44/best.zip",
+              "sha256": "333f7b7b78d27601ddd3e003418fb4063bd5f92f1eee4f5d610f80c184c48b94",
+              "best_val": 0.8998566612524869,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "45": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed45/best.zip",
+              "sha256": "978b7633a85a5904ec1008d4977e72f45a1ffbaea04a00135e1bdda9aaf11304",
+              "best_val": 0.8992811857776246,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "46": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed46/best.zip",
+              "sha256": "0ec437cf084c7e55e3c690fa726ba3b7bafa2fbfdb405e75955d87ed6954fecb",
+              "best_val": 0.8972929467176904,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "47": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed47/best.zip",
+              "sha256": "210f7a9450840bb3a736ac9a5068bbf6cfb57fbfc1d3d7174d065e55f95f5b1c",
+              "best_val": 0.9022043923470658,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "48": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed48/best.zip",
+              "sha256": "b0f5907448cd6690296066161603900ffcba7ef5ad1182e7f6f1b0b6a590bae0",
+              "best_val": 0.8986590176491354,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "49": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed49/best.zip",
+              "sha256": "2501ed262df49530a898ede79d1dc2783f10103fa7cdae12121df6877a16183b",
+              "best_val": 0.9003347516417296,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "50": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed50/best.zip",
+              "sha256": "b003a617198ff13dc9e5ec16932f9a8787ae9bb6a1ae77e9770bd227009b5954",
+              "best_val": 0.9017153319511857,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "51": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed51/best.zip",
+              "sha256": "2ae76b310a597bafddeacd50f1502777f83a07e333c41b083b6bafa3f10a6e5d",
+              "best_val": 0.9018788713183156,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            }
+          },
+          "B_legacy_150k": {
+            "42": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed42/best.zip",
+              "sha256": "41db5388edd4e627a3d49757fd09a2684b7dcb848abdd65239da43af5402da4c",
+              "best_val": 0.8566501634867569,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "43": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed43/best.zip",
+              "sha256": "c595c06b0cca0ad2fdedab72332c0bc8e8d88b4177a56e5e64b3c7b99fbc772d",
+              "best_val": 0.8602502567075162,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "44": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed44/best.zip",
+              "sha256": "a4c77aad1ceaf0a3650e98d5ae41bf4b5b50f7722043b8ecda710cb67972542e",
+              "best_val": 0.8600860259635376,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "45": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed45/best.zip",
+              "sha256": "beeafe4d98d29ab699fef6c05faa7c41903eb706c7de00a4b63f5cb101aa3c8a",
+              "best_val": 0.8578812113252117,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "46": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed46/best.zip",
+              "sha256": "d7e288d18c666f0fbd9a5bf369517b76a3c440929975d95643a9352867640db3",
+              "best_val": 0.859473395515621,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "47": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed47/best.zip",
+              "sha256": "0e43228d3f0f3db50c0787a62e9315a63f94e7bdad65fd8ea81bb100cf662972",
+              "best_val": 0.8596594490972421,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "48": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed48/best.zip",
+              "sha256": "4fa8583501616e90ae4097e5ad2fba76afe0203bd8028e863883bc8aa870e447",
+              "best_val": 0.8588327334454695,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "49": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed49/best.zip",
+              "sha256": "2f4f1571e7426e0e616498b036f759454fa2d8feb6fca8701e13721fe21aab96",
+              "best_val": 0.8579032777804803,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "50": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed50/best.zip",
+              "sha256": "128dc31071deb09c7c2224c8e5ab6684b2c5cea3a6dfbda41db1a2cd39595e7d",
+              "best_val": 0.860562312018776,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "51": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed51/best.zip",
+              "sha256": "ffd9e8a1d0fd25fdb942073fc06fd64ebd8c838a034d029f5a12766bb1a0e285",
+              "best_val": 0.854324145784379,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            }
+          }
+        },
+        "heuristic": {
+          "p": 1.0,
+          "floor": 0.1,
+          "infeasible_multiplier": 1.0
+        },
+        "heuristic_source": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/diag_baselines/heuristic_selection.json",
+        "environment": {
+          "python": "3.12.3",
+          "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu128",
+          "stable-baselines3": "2.9.0",
+          "gymnasium": "1.4.0",
+          "numpy": "2.5.2",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "networkx": "3.6.1",
+          "matplotlib": "3.11.2",
+          "pytest": "8.4.2"
+        },
+        "notes": [
+          "checkpoints were trained under several torch builds: ['2.11.0+cu128', '2.14.1+cu130'] (documented deviation)"
+        ]
+      }
+    },
+    {
+      "freeze_file": "FINAL_DELIVERABLES/metadata/freeze.json",
+      "sha256": "0747e439645597b7eec67c00d02375406e33f2ee03b0caafd98183f272f97733",
+      "data": {
+        "created_utc": "2026-10-28T13:03:15+00:00",
+        "config_sha256": "2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec",
+        "core_code_sha256": "2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714",
+        "topology_sha256": "fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e",
+        "models": {
+          "A_legacy_150k": {
+            "42": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed42/best.zip",
+              "sha256": "b68c9e06de3108ba94e09f3bace45e1f75799cb025eb113827ae01915981244d",
+              "best_val": 0.8895770255384196,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "43": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed43/best.zip",
+              "sha256": "ec5ec639b509a6718e004500f90449b35132f4e23b1dc93192526d3eecb85f20",
+              "best_val": 0.8791412761411521,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "44": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed44/best.zip",
+              "sha256": "7cab64febb161071fc9828b48926b70315cd4dab95ab94c7e9c3b107f55f78a5",
+              "best_val": 0.8872430645809285,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "45": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed45/best.zip",
+              "sha256": "7c0c07b9d6ffdb96ffba3c64ad803ef6ecf751c5a9c456b8f5a7dcb09daa10dc",
+              "best_val": 0.8794111020480908,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "46": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed46/best.zip",
+              "sha256": "d14c15018ccfabbc233a04ff206bbc9a86f9aeff4f87aa0d898da4b7291dd5f5",
+              "best_val": 0.8916075497562312,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "47": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed47/best.zip",
+              "sha256": "968d1806f73b665b925a50c11ed89068b3f640acd10091d82d0d1dec53c30b80",
+              "best_val": 0.8812568102229237,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "48": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed48/best.zip",
+              "sha256": "26c84f71bc6c76e484252d06d5af4e4fe8da8cccc13c9f731b4f9e69adbdd023",
+              "best_val": 0.8798506260750826,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "49": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed49/best.zip",
+              "sha256": "bb4befabb21523dc3cb406f500c716222ce6977db2ee2372e85bcf9bacc7fbb1",
+              "best_val": 0.892030506457198,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "50": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed50/best.zip",
+              "sha256": "f9094aad096eede90e2f4448e46b35fff6593c00f1c952cb853435b7cbd3f70e",
+              "best_val": 0.8875406580876631,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "51": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/replace/seed51/best.zip",
+              "sha256": "74cd47c842b831f9279c93568514a431351d1659ddd2964e1953a30c546b3f54",
+              "best_val": 0.889055163618207,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            }
+          },
+          "A_600k": {
+            "42": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed42/best.zip",
+              "sha256": "54dcf1e40665aa006381652fdec2980ec05b1e2cc67569e680dfa423a1b8ef11",
+              "best_val": 0.8957820026782107,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "43": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed43/best.zip",
+              "sha256": "e3a3761eb705e2e6f611e8de288aa2bf32c19ee9100a966db7fa5744a11f480a",
+              "best_val": 0.9030641647707367,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "44": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed44/best.zip",
+              "sha256": "333f7b7b78d27601ddd3e003418fb4063bd5f92f1eee4f5d610f80c184c48b94",
+              "best_val": 0.8998566612524869,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "45": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed45/best.zip",
+              "sha256": "978b7633a85a5904ec1008d4977e72f45a1ffbaea04a00135e1bdda9aaf11304",
+              "best_val": 0.8992811857776246,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "46": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed46/best.zip",
+              "sha256": "0ec437cf084c7e55e3c690fa726ba3b7bafa2fbfdb405e75955d87ed6954fecb",
+              "best_val": 0.8972929467176904,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "47": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed47/best.zip",
+              "sha256": "210f7a9450840bb3a736ac9a5068bbf6cfb57fbfc1d3d7174d065e55f95f5b1c",
+              "best_val": 0.9022043923470658,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "48": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed48/best.zip",
+              "sha256": "b0f5907448cd6690296066161603900ffcba7ef5ad1182e7f6f1b0b6a590bae0",
+              "best_val": 0.8986590176491354,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "49": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed49/best.zip",
+              "sha256": "2501ed262df49530a898ede79d1dc2783f10103fa7cdae12121df6877a16183b",
+              "best_val": 0.9003347516417296,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "50": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed50/best.zip",
+              "sha256": "b003a617198ff13dc9e5ec16932f9a8787ae9bb6a1ae77e9770bd227009b5954",
+              "best_val": 0.9017153319511857,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            },
+            "51": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/models/replace_600k/seed51/best.zip",
+              "sha256": "2ae76b310a597bafddeacd50f1502777f83a07e333c41b083b6bafa3f10a6e5d",
+              "best_val": 0.9018788713183156,
+              "stop_reason": "plateau",
+              "torch": "2.11.0+cu128"
+            }
+          },
+          "B_legacy_150k": {
+            "42": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed42/best.zip",
+              "sha256": "41db5388edd4e627a3d49757fd09a2684b7dcb848abdd65239da43af5402da4c",
+              "best_val": 0.8566501634867569,
+              "stop_reason": null,
+              "torch": "2.14.1+cu130"
+            },
+            "43": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed43/best.zip",
+              "sha256": "c595c06b0cca0ad2fdedab72332c0bc8e8d88b4177a56e5e64b3c7b99fbc772d",
+              "best_val": 0.8602502567075162,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "44": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed44/best.zip",
+              "sha256": "a4c77aad1ceaf0a3650e98d5ae41bf4b5b50f7722043b8ecda710cb67972542e",
+              "best_val": 0.8600860259635376,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "45": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed45/best.zip",
+              "sha256": "beeafe4d98d29ab699fef6c05faa7c41903eb706c7de00a4b63f5cb101aa3c8a",
+              "best_val": 0.8578812113252117,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "46": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed46/best.zip",
+              "sha256": "d7e288d18c666f0fbd9a5bf369517b76a3c440929975d95643a9352867640db3",
+              "best_val": 0.859473395515621,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "47": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed47/best.zip",
+              "sha256": "0e43228d3f0f3db50c0787a62e9315a63f94e7bdad65fd8ea81bb100cf662972",
+              "best_val": 0.8596594490972421,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "48": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed48/best.zip",
+              "sha256": "4fa8583501616e90ae4097e5ad2fba76afe0203bd8028e863883bc8aa870e447",
+              "best_val": 0.8588327334454695,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "49": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed49/best.zip",
+              "sha256": "2f4f1571e7426e0e616498b036f759454fa2d8feb6fca8701e13721fe21aab96",
+              "best_val": 0.8579032777804803,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "50": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed50/best.zip",
+              "sha256": "128dc31071deb09c7c2224c8e5ab6684b2c5cea3a6dfbda41db1a2cd39595e7d",
+              "best_val": 0.860562312018776,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            },
+            "51": {
+              "path": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/models/enhance/seed51/best.zip",
+              "sha256": "ffd9e8a1d0fd25fdb942073fc06fd64ebd8c838a034d029f5a12766bb1a0e285",
+              "best_val": 0.854324145784379,
+              "stop_reason": null,
+              "torch": "2.11.0+cu128"
+            }
+          }
+        },
+        "heuristic": {
+          "p": 1.0,
+          "floor": 0.1,
+          "infeasible_multiplier": 1.0
+        },
+        "heuristic_source": "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/diag_baselines/heuristic_selection.json",
+        "environment": {
+          "python": "3.12.3",
+          "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+          "torch": "2.11.0+cu128",
+          "stable-baselines3": "2.9.0",
+          "gymnasium": "1.4.0",
+          "numpy": "2.5.2",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "networkx": "3.6.1",
+          "matplotlib": "3.11.2",
+          "pytest": "8.4.2"
+        },
+        "notes": [
+          "checkpoints were trained under several torch builds: ['2.11.0+cu128', '2.14.1+cu130'] (documented deviation)"
+        ]
+      }
+    }
+  ],
+  "poisoning_executed": false,
+  "training_executed": false,
+  "historical_results_modified": false
+}

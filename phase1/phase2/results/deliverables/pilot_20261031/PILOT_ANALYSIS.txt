@@ -1,0 +1,273 @@
+========================================================================
+PHASE 2 — TELEMETRY POISONING PILOT VALIDATION
+========================================================================
+Manifest status: completed
+CSV rows: 16,500
+CSV columns: 32
+CSV SHA-256: 990b21741f7d1ea3a60d506ad6f6467fdb74dd220e01d92b2c87fca98cfcefaf
+
+--- TARGET COVERAGE ---
+Attacks: 11
+Methods/targets: 9
+Seeds: [-1, 42, 43, 44]
+
+Rows by attack:
+attack
+bias_all_minus@0.2    1500
+bias_all_minus@0.4    1500
+bias_all_plus@0.2     1500
+bias_all_plus@0.4     1500
+clean                 1500
+conceal_topk@0.2      1500
+conceal_topk@0.4      1500
+fake_topk@0.2         1500
+fake_topk@0.4         1500
+random_sign@0.2       1500
+random_sign@0.4       1500
+
+Rows by target:
+method                model_seed
+A_600k                 42           1100
+                       43           1100
+                       44           1100
+A_legacy_150k          42           1100
+                       43           1100
+                       44           1100
+B_legacy_150k          42           1100
+                       43           1100
+                       44           1100
+greedy_widest         -1            1100
+minhop                -1            1100
+shortest_feasible     -1            1100
+shortest_feasible_k   -1            1100
+unit_weight_dijkstra  -1            1100
+util_weight_dijkstra  -1            1100
+
+Duplicate experiment identities: 0
+
+--- INVARIANTS ---
+replay_ok: 16500/16500 passed
+caps_ok: 16500/16500 passed
+param_unchanged: 9900/16500 passed
+Maximum perturbation budget excess: 5.55111512313e-17
+
+--- PERFORMANCE SUMMARY ---
+                                             accepted_offered_ratio                    
+                                                              count      mean       std
+method               attack             load                                           
+A_600k               bias_all_minus@0.2 2.0                     300  0.899650  0.046438
+                     bias_all_minus@0.4 2.0                     300  0.886781  0.046675
+                     bias_all_plus@0.2  2.0                     300  0.882935  0.051551
+                     bias_all_plus@0.4  2.0                     300  0.857874  0.054488
+                     clean              2.0                     300  0.901364  0.046111
+                     conceal_topk@0.2   2.0                     300  0.884337  0.047738
+                     conceal_topk@0.4   2.0                     300  0.860661  0.049193
+                     fake_topk@0.2      2.0                     300  0.901378  0.046690
+                     fake_topk@0.4      2.0                     300  0.898366  0.046122
+                     random_sign@0.2    2.0                     300  0.883318  0.050148
+                     random_sign@0.4    2.0                     300  0.855762  0.050520
+A_legacy_150k        bias_all_minus@0.2 2.0                     300  0.872260  0.050145
+                     bias_all_minus@0.4 2.0                     300  0.859269  0.052418
+                     bias_all_plus@0.2  2.0                     300  0.861273  0.051560
+                     bias_all_plus@0.4  2.0                     300  0.826219  0.058258
+                     clean              2.0                     300  0.880013  0.048706
+                     conceal_topk@0.2   2.0                     300  0.865133  0.049100
+                     conceal_topk@0.4   2.0                     300  0.847618  0.051615
+                     fake_topk@0.2      2.0                     300  0.881275  0.047774
+                     fake_topk@0.4      2.0                     300  0.878341  0.047032
+                     random_sign@0.2    2.0                     300  0.868900  0.048805
+                     random_sign@0.4    2.0                     300  0.849781  0.053018
+B_legacy_150k        bias_all_minus@0.2 2.0                     300  0.840493  0.052822
+                     bias_all_minus@0.4 2.0                     300  0.839348  0.052874
+                     bias_all_plus@0.2  2.0                     300  0.839067  0.053306
+                     bias_all_plus@0.4  2.0                     300  0.839372  0.054319
+                     clean              2.0                     300  0.838280  0.052577
+                     conceal_topk@0.2   2.0                     300  0.838814  0.053365
+                     conceal_topk@0.4   2.0                     300  0.839748  0.055472
+                     fake_topk@0.2      2.0                     300  0.839870  0.053696
+                     fake_topk@0.4      2.0                     300  0.840314  0.054008
+                     random_sign@0.2    2.0                     300  0.840343  0.055012
+                     random_sign@0.4    2.0                     300  0.844234  0.052144
+greedy_widest        bias_all_minus@0.2 2.0                     100  0.907800  0.048915
+                     bias_all_minus@0.4 2.0                     100  0.915510  0.047354
+                     bias_all_plus@0.2  2.0                     100  0.892771  0.049870
+                     bias_all_plus@0.4  2.0                     100  0.876174  0.045646
+                     clean              2.0                     100  0.901710  0.048682
+                     conceal_topk@0.2   2.0                     100  0.885324  0.053103
+                     conceal_topk@0.4   2.0                     100  0.846796  0.053895
+                     fake_topk@0.2      2.0                     100  0.901306  0.049329
+                     fake_topk@0.4      2.0                     100  0.899981  0.053914
+                     random_sign@0.2    2.0                     100  0.872992  0.051214
+                     random_sign@0.4    2.0                     100  0.848480  0.045914
+minhop               bias_all_minus@0.2 2.0                     100  0.836358  0.052636
+                     bias_all_minus@0.4 2.0                     100  0.836358  0.052636
+                     bias_all_plus@0.2  2.0                     100  0.836358  0.052636
+                     bias_all_plus@0.4  2.0                     100  0.836358  0.052636
+                     clean              2.0                     100  0.836358  0.052636
+                     conceal_topk@0.2   2.0                     100  0.836358  0.052636
+                     conceal_topk@0.4   2.0                     100  0.836358  0.052636
+                     fake_topk@0.2      2.0                     100  0.836358  0.052636
+                     fake_topk@0.4      2.0                     100  0.836358  0.052636
+                     random_sign@0.2    2.0                     100  0.836358  0.052636
+                     random_sign@0.4    2.0                     100  0.836358  0.052636
+shortest_feasible    bias_all_minus@0.2 2.0                     100  0.901241  0.042064
+                     bias_all_minus@0.4 2.0                     100  0.840490  0.052451
+                     bias_all_plus@0.2  2.0                     100  0.900828  0.055685
+                     bias_all_plus@0.4  2.0                     100  0.872437  0.050813
+                     clean              2.0                     100  0.922377  0.051439
+                     conceal_topk@0.2   2.0                     100  0.898490  0.045365
+                     conceal_topk@0.4   2.0                     100  0.840202  0.053689
+                     fake_topk@0.2      2.0                     100  0.922256  0.051604
+                     fake_topk@0.4      2.0                     100  0.922233  0.051585
+                     random_sign@0.2    2.0                     100  0.894921  0.047705
+                     random_sign@0.4    2.0                     100  0.848007  0.056271
+shortest_feasible_k  bias_all_minus@0.2 2.0                     100  0.893989  0.041795
+                     bias_all_minus@0.4 2.0                     100  0.840357  0.052427
+                     bias_all_plus@0.2  2.0                     100  0.911167  0.048526
+                     bias_all_plus@0.4  2.0                     100  0.881979  0.049093
+                     clean              2.0                     100  0.918424  0.046470
+                     conceal_topk@0.2   2.0                     100  0.892882  0.043621
+                     conceal_topk@0.4   2.0                     100  0.839919  0.054672
+                     fake_topk@0.2      2.0                     100  0.918424  0.046470
+                     fake_topk@0.4      2.0                     100  0.918370  0.046501
+                     random_sign@0.2    2.0                     100  0.891456  0.046583
+                     random_sign@0.4    2.0                     100  0.867070  0.051929
+unit_weight_dijkstra bias_all_minus@0.2 2.0                     100  0.836126  0.050043
+                     bias_all_minus@0.4 2.0                     100  0.836126  0.050043
+                     bias_all_plus@0.2  2.0                     100  0.836126  0.050043
+                     bias_all_plus@0.4  2.0                     100  0.836126  0.050043
+                     clean              2.0                     100  0.836126  0.050043
+                     conceal_topk@0.2   2.0                     100  0.836126  0.050043
+                     conceal_topk@0.4   2.0                     100  0.836126  0.050043
+                     fake_topk@0.2      2.0                     100  0.836126  0.050043
+                     fake_topk@0.4      2.0                     100  0.836126  0.050043
+                     random_sign@0.2    2.0                     100  0.836126  0.050043
+                     random_sign@0.4    2.0                     100  0.836126  0.050043
+util_weight_dijkstra bias_all_minus@0.2 2.0                     100  0.919177  0.044141
+                     bias_all_minus@0.4 2.0                     100  0.899439  0.043709
+                     bias_all_plus@0.2  2.0                     100  0.911019  0.047883
+                     bias_all_plus@0.4  2.0                     100  0.891353  0.048529
+                     clean              2.0                     100  0.925513  0.046880
+                     conceal_topk@0.2   2.0                     100  0.910162  0.044904
+                     conceal_topk@0.4   2.0                     100  0.879329  0.047261
+                     fake_topk@0.2      2.0                     100  0.926028  0.046345
+                     fake_topk@0.4      2.0                     100  0.921534  0.048515
+                     random_sign@0.2    2.0                     100  0.901411  0.047191
+                     random_sign@0.4    2.0                     100  0.858046  0.051584
+
+--- CHANGE RELATIVE TO CLEAN ---
+Metric: accepted_offered_ratio
+Matched attack observations: 15000/15000
+Negative change means worse performance for this metric.
+                                         count      mean       std
+method               attack                                       
+A_600k               bias_all_minus@0.2    300 -0.001714  0.015531
+                     bias_all_minus@0.4    300 -0.014582  0.022131
+                     bias_all_plus@0.2     300 -0.018429  0.021093
+                     bias_all_plus@0.4     300 -0.043490  0.029442
+                     conceal_topk@0.2      300 -0.017026  0.019837
+                     conceal_topk@0.4      300 -0.040702  0.025231
+                     fake_topk@0.2         300  0.000015  0.014121
+                     fake_topk@0.4         300 -0.002998  0.016666
+                     random_sign@0.2       300 -0.018045  0.021927
+                     random_sign@0.4       300 -0.045602  0.030229
+A_legacy_150k        bias_all_minus@0.2    300 -0.007754  0.023723
+                     bias_all_minus@0.4    300 -0.020744  0.029097
+                     bias_all_plus@0.2     300 -0.018740  0.028754
+                     bias_all_plus@0.4     300 -0.053794  0.043469
+                     conceal_topk@0.2      300 -0.014880  0.021465
+                     conceal_topk@0.4      300 -0.032395  0.027834
+                     fake_topk@0.2         300  0.001261  0.016507
+                     fake_topk@0.4         300 -0.001673  0.021480
+                     random_sign@0.2       300 -0.011114  0.023205
+                     random_sign@0.4       300 -0.030233  0.030180
+B_legacy_150k        bias_all_minus@0.2    300  0.002213  0.016389
+                     bias_all_minus@0.4    300  0.001068  0.022204
+                     bias_all_plus@0.2     300  0.000787  0.015825
+                     bias_all_plus@0.4     300  0.001093  0.020913
+                     conceal_topk@0.2      300  0.000534  0.015207
+                     conceal_topk@0.4      300  0.001468  0.020626
+                     fake_topk@0.2         300  0.001590  0.018136
+                     fake_topk@0.4         300  0.002034  0.025144
+                     random_sign@0.2       300  0.002064  0.021212
+                     random_sign@0.4       300  0.005954  0.022325
+greedy_widest        bias_all_minus@0.2    100  0.006090  0.022295
+                     bias_all_minus@0.4    100  0.013800  0.025312
+                     bias_all_plus@0.2     100 -0.008940  0.009823
+                     bias_all_plus@0.4     100 -0.025536  0.021088
+                     conceal_topk@0.2      100 -0.016386  0.027475
+                     conceal_topk@0.4      100 -0.054914  0.036964
+                     fake_topk@0.2         100 -0.000404  0.022001
+                     fake_topk@0.4         100 -0.001729  0.031769
+                     random_sign@0.2       100 -0.028719  0.035108
+                     random_sign@0.4       100 -0.053230  0.031818
+minhop               bias_all_minus@0.2    100  0.000000  0.000000
+                     bias_all_minus@0.4    100  0.000000  0.000000
+                     bias_all_plus@0.2     100  0.000000  0.000000
+                     bias_all_plus@0.4     100  0.000000  0.000000
+                     conceal_topk@0.2      100  0.000000  0.000000
+                     conceal_topk@0.4      100  0.000000  0.000000
+                     fake_topk@0.2         100  0.000000  0.000000
+                     fake_topk@0.4         100  0.000000  0.000000
+                     random_sign@0.2       100  0.000000  0.000000
+                     random_sign@0.4       100  0.000000  0.000000
+shortest_feasible    bias_all_minus@0.2    100 -0.021136  0.021054
+                     bias_all_minus@0.4    100 -0.081887  0.035960
+                     bias_all_plus@0.2     100 -0.021549  0.025324
+                     bias_all_plus@0.4     100 -0.049940  0.031300
+                     conceal_topk@0.2      100 -0.023887  0.019857
+                     conceal_topk@0.4      100 -0.082175  0.038336
+                     fake_topk@0.2         100 -0.000120  0.000867
+                     fake_topk@0.4         100 -0.000144  0.000895
+                     random_sign@0.2       100 -0.027456  0.021207
+                     random_sign@0.4       100 -0.074370  0.035963
+shortest_feasible_k  bias_all_minus@0.2    100 -0.024435  0.017548
+                     bias_all_minus@0.4    100 -0.078067  0.033903
+                     bias_all_plus@0.2     100 -0.007257  0.019589
+                     bias_all_plus@0.4     100 -0.036445  0.029327
+                     conceal_topk@0.2      100 -0.025542  0.017163
+                     conceal_topk@0.4      100 -0.078505  0.035377
+                     fake_topk@0.2         100  0.000000  0.000000
+                     fake_topk@0.4         100 -0.000054  0.000540
+                     random_sign@0.2       100 -0.026968  0.020904
+                     random_sign@0.4       100 -0.051354  0.027125
+unit_weight_dijkstra bias_all_minus@0.2    100  0.000000  0.000000
+                     bias_all_minus@0.4    100  0.000000  0.000000
+                     bias_all_plus@0.2     100  0.000000  0.000000
+                     bias_all_plus@0.4     100  0.000000  0.000000
+                     conceal_topk@0.2      100  0.000000  0.000000
+                     conceal_topk@0.4      100  0.000000  0.000000
+                     fake_topk@0.2         100  0.000000  0.000000
+                     fake_topk@0.4         100  0.000000  0.000000
+                     random_sign@0.2       100  0.000000  0.000000
+                     random_sign@0.4       100  0.000000  0.000000
+util_weight_dijkstra bias_all_minus@0.2    100 -0.006336  0.014129
+                     bias_all_minus@0.4    100 -0.026074  0.021223
+                     bias_all_plus@0.2     100 -0.014493  0.017525
+                     bias_all_plus@0.4     100 -0.034160  0.022845
+                     conceal_topk@0.2      100 -0.015351  0.021057
+                     conceal_topk@0.4      100 -0.046184  0.022952
+                     fake_topk@0.2         100  0.000515  0.011957
+                     fake_topk@0.4         100 -0.003979  0.013128
+                     random_sign@0.2       100 -0.024102  0.022554
+                     random_sign@0.4       100 -0.067467  0.033932
+
+--- MANIFEST INVARIANTS ---
+{
+  "all_replay_ok": true,
+  "all_caps_ok": true,
+  "max_delta_over_budget": 5.551115123125783e-17
+}
+
+--- WARNINGS ---
+None
+
+--- ERRORS ---
+None
+
+--- INTERPRETATION LIMITS ---
+This is a pilot analysis, not confirmatory statistical evidence.
+Descriptive differences do not establish statistical significance.
+Do not select attack configurations based on these results and
+then describe the same pilot as an independent confirmatory test.
+Dataset provenance and redistribution terms remain separate issues.

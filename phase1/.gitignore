@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS and editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+__pycache__/
+*.pyc
+.pytest_cache/
+*.before_*
+*.modified
+*_backup_*/
+backups/
+x_experiments_local.json
+# third-party / not redistributable without license check
+external-topology-zoo/
+external-gnn-research/
+ENERO/
+research_review/paper_text/
+# large artifacts: publish via GitHub Release / Zenodo, keep only checksums here
+*.zip
+*.tar.gz
+*.ckpt
+# LaTeX build
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz

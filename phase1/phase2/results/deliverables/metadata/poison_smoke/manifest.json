@@ -1,0 +1,68 @@
+{
+  "name": "x_07_poison_eval[smoke]",
+  "status": "completed",
+  "started_utc": "2026-10-28T13:44:38+00:00",
+  "config_path": "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/configs/x_experiments.json",
+  "config_sha256": "2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec",
+  "args": {
+    "config": "/media/bakhom/New Volume/Research/RL_Sec/practical/p2x_overlay/configs/x_experiments.json",
+    "out": null,
+    "overwrite": false,
+    "verbose": false,
+    "preset": "smoke",
+    "run": true,
+    "baselines_only": false,
+    "targets": null
+  },
+  "seeds": {
+    "scenarios": "val_v2[0:3) x loads [2.0]"
+  },
+  "git": null,
+  "code_tree_sha256": "2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.2",
+    "pytest": "8.4.2"
+  },
+  "inputs": {},
+  "outputs": {
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/poison_smoke/episodes.csv": "650dd29d28d56c87c3b50175cdf7658e18aa04dd6cf7bef2da09754f05b7e886"
+  },
+  "extra": {
+    "topology_sha256": "fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e",
+    "plan": {
+      "preset": "smoke",
+      "attack_configs": 6,
+      "episodes_per_target": 18,
+      "baseline_targets": 6,
+      "model_targets": {
+        "A_600k": 1,
+        "A_legacy_150k": 1,
+        "B_legacy_150k": 1
+      },
+      "est_cpu_minutes": 0.1
+    },
+    "heuristic": {
+      "p": 1.0,
+      "floor": 0.1,
+      "infeasible_multiplier": 1.0
+    },
+    "status_of_results": "pipeline check only",
+    "n_rows": 162,
+    "invariants": {
+      "all_replay_ok": true,
+      "all_caps_ok": true,
+      "max_delta_over_budget": 5.551115123125783e-17
+    }
+  },
+  "wall_s": 4.4,
+  "finished_utc": "2026-10-28T13:44:42+00:00"
+}

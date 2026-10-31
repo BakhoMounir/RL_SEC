@@ -1,0 +1,145 @@
+{
+  "input_csv": "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/confirmatory_v1/episodes.csv",
+  "rows": 72000,
+  "columns": [
+    {
+      "name": "method",
+      "dtype": "str",
+      "missing": 0,
+      "unique_non_null": 9
+    },
+    {
+      "name": "model_seed",
+      "dtype": "int64",
+      "missing": 0,
+      "unique_non_null": 11
+    },
+    {
+      "name": "scenario_idx",
+      "dtype": "int64",
+      "missing": 0,
+      "unique_non_null": 500
+    },
+    {
+      "name": "scenario_seed",
+      "dtype": "int64",
+      "missing": 0,
+      "unique_non_null": 500
+    },
+    {
+      "name": "load",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 4
+    },
+    {
+      "name": "offered_volume",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 2000
+    },
+    {
+      "name": "accepted_volume",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 50418
+    },
+    {
+      "name": "accepted_offered_ratio",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 49551
+    },
+    {
+      "name": "blocked_volume_ratio",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 49588
+    },
+    {
+      "name": "flows_fully_blocked",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 29
+    },
+    {
+      "name": "flows_partially_admitted",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 23
+    },
+    {
+      "name": "max_utilization",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 9421
+    },
+    {
+      "name": "mean_utilization",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 68483
+    },
+    {
+      "name": "saturated_links",
+      "dtype": "int64",
+      "missing": 0,
+      "unique_non_null": 24
+    },
+    {
+      "name": "mean_hops_accepted",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 64077
+    },
+    {
+      "name": "capacity_hops_used",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 64181
+    },
+    {
+      "name": "mean_hops_per_flow",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 87
+    },
+    {
+      "name": "replay_ok",
+      "dtype": "bool",
+      "missing": 0,
+      "unique_non_null": 1
+    },
+    {
+      "name": "caps_ok",
+      "dtype": "bool",
+      "missing": 0,
+      "unique_non_null": 1
+    },
+    {
+      "name": "frac_route_is_minhop_cand0",
+      "dtype": "float64",
+      "missing": 0,
+      "unique_non_null": 45
+    },
+    {
+      "name": "action_hist",
+      "dtype": "str",
+      "missing": 32000,
+      "unique_non_null": 2983
+    }
+  ],
+  "inferred_columns": {
+    "method": "method",
+    "load": "load",
+    "success_metric": null,
+    "seed": "model_seed",
+    "scenario": null,
+    "episode": null,
+    "steps": null,
+    "reward": null,
+    "latency": null,
+    "packet_loss": null,
+    "utilization": "max_utilization"
+  }
+}

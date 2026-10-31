@@ -1,0 +1,26 @@
+TIMESTAMP_UTC: 2026-10-29T16:27:47.076741+00:00
+PROJECT_ROOT: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation
+AUDIT_DIR: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/FINAL_DELIVERABLES/audit/one_command_preflight_20261029_192745
+STAGE: Full Phase 2 test suite
+TEST_EXIT_CODE: 0
+CONFIG_SHA256: 2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec
+CURRENT_CORE_CODE_SHA256: ffa672221400ab3cb053a661a1b50ad8bbe37d07d199726b905c73e7fb62aaa4
+FREEZE_PATH: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/freeze.json
+FREEZE_EXISTS: True
+CONFIRMATORY_MANIFEST: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/confirmatory_v1/manifest.json
+CONFIRMATORY_MANIFEST_EXISTS: True
+CONFIRMATORY_LOCK_EXISTS: False
+FROZEN_CONFIG_HASH_MATCH: True
+FROZEN_CODE_HASH_MATCH: False
+FROZEN_TOPOLOGY_HASH: fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e
+FROZEN_CREATED_UTC: 2026-10-28T13:03:15+00:00
+ALL_FROZEN_CHECKPOINT_HASHES_MATCH: True
+CONFIRMATORY_STATUS: completed
+CONFIRMATORY_OUTPUT_HASH_MATCH: True | /media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/confirmatory_v1/episodes.csv
+FREEZE_VALID_FOR_CURRENT_CODE: False
+CONFIRMATORY_MANIFEST_OUTPUTS_VALID: True
+POISON_DIR: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/poison_full exists=False
+POISON_DIR: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/poison_pilot exists=False
+POISON_DIR: /media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/results/v2/poison_smoke exists=False
+NEXT_REQUIRED_ACTION: Freeze source hash is stale. Preserve the historical freeze; create a separately versioned experiment configuration/results root, then freeze and rerun the clean confirmation under the patched code.
+FINAL_STATUS: PREFLIGHT COMPLETE; experiment execution intentionally withheld because the frozen source does not match current code.

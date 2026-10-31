@@ -1,0 +1,119 @@
+===== PYTHON ENVIRONMENT =====
+Python: /home/bakhom/ai-agents-lab/.venv/bin/python
+Python 3.12.3
+Name: pytest
+Version: 8.4.2
+Summary: pytest: simple powerful testing with Python
+Home-page: https://docs.pytest.org/en/latest/
+Author: Holger Krekel, Bruno Oliveira, Ronny Pfannschmidt, Floris Bruynooghe, Brianna Laugher, Florian Bruhin, Others (See AUTHORS)
+Author-email: 
+License: MIT
+Location: /home/bakhom/ai-agents-lab/.venv/lib/python3.12/site-packages
+Requires: iniconfig, packaging, pluggy, pygments
+Required-by: pytest-asyncio
+---
+Name: torch
+Version: 2.11.0+cu128
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org
+Author: 
+Author-email: PyTorch Team <packages@pytorch.org>
+License: BSD-3-Clause
+Location: /home/bakhom/ai-agents-lab/.venv/lib/python3.12/site-packages
+Requires: cuda-bindings, cuda-toolkit, filelock, fsspec, jinja2, networkx, nvidia-cudnn-cu12, nvidia-cusparselt-cu12, nvidia-nccl-cu12, nvidia-nvshmem-cu12, setuptools, sympy, triton, typing-extensions
+Required-by: accelerate, sentence-transformers, stable_baselines3, torchvision
+---
+Name: stable_baselines3
+Version: 2.9.0
+Summary: Pytorch version of Stable Baselines, implementations of reinforcement learning algorithms.
+Home-page: https://github.com/DLR-RM/stable-baselines3
+Author: Antonin Raffin
+Author-email: antonin.raffin@dlr.de
+License: MIT
+Location: /home/bakhom/ai-agents-lab/.venv/lib/python3.12/site-packages
+Requires: cloudpickle, gymnasium, numpy, torch
+Required-by: 
+---
+Name: gymnasium
+Version: 1.4.0
+Summary: A standard API for reinforcement learning and a diverse set of reference environments (formerly Gym).
+Home-page: https://farama.org
+Author: 
+Author-email: Farama Foundation <contact@farama.org>
+License: MIT License
+Location: /home/bakhom/ai-agents-lab/.venv/lib/python3.12/site-packages
+Requires: cloudpickle, farama-notifications, numpy, typing-extensions
+Required-by: stable_baselines3
+
+===== TEST SUITE =====
+........................................................................ [ 88%]
+.........                                                                [100%]
+81 passed in 14.76s
+PYTEST_EXIT_CODE=0
+
+===== ACTUAL RUNNER HELP =====
+Runner: phase2/scripts/x_07_poison_eval.py
+usage: x_07_poison_eval.py [-h] [--config CONFIG] [--out OUT] [--overwrite]
+                           [-v] [--preset {smoke,pilot,full}] [--run]
+                           [--baselines-only]
+                           [--targets TARGETS [TARGETS ...]]
+
+Stage F - TEST-TIME TELEMETRY POISONING (prepared; DRY RUN by default, --run to execute). Threat model: docs/THREAT_MODEL.md.
+Perturbs ONLY the utilization vector observed by a policy: obs = clip(true + delta, 0, 1), |delta_e| <= eps. True loads, capacities, traffic, reward and
+model parameters are untouched; every episode is replay-verified and model parameter hashes are compared before/after.
+Gates: presets 'pilot'/'full' need a valid freeze AND a completed confirmatory run (attack matrix is predeclared in the frozen config; no tuning).
+Preset 'smoke' (3 scenarios, development set) only validates the pipeline; its numbers must not be interpreted or used to change the matrix.
+Clean controls (attack 'clean') and the random_sign noise control at equal eps are always part of the matrix.
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       experiment config (default: /media/bakhom/New Volume/R
+                        esearch/RL_Sec/practical/phase2-
+                        validation/phase2/configs/x_experiments.json)
+  --out OUT             output directory (default: <results_root>/<stage>)
+  --overwrite           allow replacing a completed run in --out
+  -v, --verbose
+  --preset {smoke,pilot,full}
+  --run
+  --baselines-only      skip trained models (no torch needed)
+  --targets TARGETS [TARGETS ...]
+                        restrict to these target ids (split a long run across
+                        processes; parts are resumable)
+RUNNER_HELP_EXIT_CODE=0
+
+===== REQUIRED JSON VALIDATION =====
+
+phase2/results/v2/freeze.json
+VALID JSON
+Top-level keys: ['config_sha256', 'core_code_sha256', 'created_utc', 'environment', 'heuristic', 'heuristic_source', 'models', 'notes', 'topology_sha256']
+
+phase2/results/v2/confirmatory_v1/manifest.json
+VALID JSON
+Top-level keys: ['args', 'code_tree_sha256', 'config_path', 'config_sha256', 'environment', 'extra', 'finished_utc', 'git', 'inputs', 'name', 'outputs', 'seeds', 'started_utc', 'status', 'wall_s']
+
+phase2/results/v2/diag_baselines/heuristic_selection.json
+VALID JSON
+Top-level keys: ['full_set_means_optimistic', 'n_per_load', 'selected', 'selection_half_means', 'selection_rule']
+
+phase2/configs/x_experiments_local.json
+VALID JSON
+Top-level keys: ['_comment', 'confirmatory', 'diagnostics', 'heuristic_grid', 'legacy', 'loads', 'metric', 'poisoning', 'ppo_hp', 'results_root', 'seeds', 'topology', 'train_agent_a', 'train_load_range', 'version']
+
+FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/manifest.json
+VALID JSON
+Top-level keys: ['args', 'code_tree_sha256', 'config_path', 'config_sha256', 'environment', 'extra', 'finished_utc', 'git', 'inputs', 'name', 'outputs', 'seeds', 'started_utc', 'status', 'wall_s']
+
+===== CHECKPOINT COUNTS =====
+Seed directories: ['seed42', 'seed43', 'seed44', 'seed45', 'seed46', 'seed47', 'seed48', 'seed49', 'seed50', 'seed51']
+seed42 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed43 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed44 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed45 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed46 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed47 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed48 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed49 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed50 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+seed51 {'best.zip': True, 'final.zip': True, 'last.zip': True, 'meta.json': True}
+
+===== PREFLIGHT END =====

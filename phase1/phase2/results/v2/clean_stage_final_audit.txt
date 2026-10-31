@@ -1,0 +1,27 @@
+PHASE 2 FINAL REPRODUCIBILITY AUDIT
+Generated: 2026-10-29T00:59:05+03:00
+
+Project: Routing-and-poisoning, Phase 2
+Confirmatory evaluation: existing frozen run; not rerun by this audit.
+Manifest: /media/bakhom/New Volume/Research/RL_Sec/practical/files/routing-poisoning-phase2-handover/results/v2/confirmatory_v1/manifest.json
+Frozen config SHA-256: 2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec
+Episode CSV SHA-256: e5257ccfa3e8b56661f35833fc894ee9b0bda06c2adf79f25552d442d7f83b73
+Topology SHA-256: fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e
+Test suite: PASS
+
+Integrity checks:
+- Configuration hash matched the recorded expected hash.
+- Episode CSV hash matched the recorded expected hash.
+- Topology hash matched the recorded expected hash.
+- Manifest row count was checked against the CSV.
+- Existing statistical outputs were checked for presence.
+
+Important limitations:
+- The original manifest records different PyTorch builds across some trained checkpoints.
+- The current core-code hash must be verified using the exact original freeze-script algorithm; a manually assembled hash is not sufficient.
+- Presence of statistical outputs does not itself validate their methodology or conclusions.
+- Dataset provenance and redistribution/license terms remain unresolved.
+- Scientific review of the clean benchmark remains necessary before proceeding to poisoning experiments.
+- No model training or poisoning experiments were started by this audit.
+
+Test status: PASS

@@ -1,0 +1,109 @@
+{
+  "name": "x_07_poison_eval[smoke]",
+  "status": "completed",
+  "started_utc": "2026-10-31T11:48:06+00:00",
+  "config_path": "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/configs/x_experiments.json",
+  "config_sha256": "2c2a530d649f947b791d33c7c0de58ad9da0e138e9532ca159cf1b24e7eb34ec",
+  "args": {
+    "config": "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/phase2/configs/x_experiments.json",
+    "out": "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031",
+    "overwrite": false,
+    "verbose": false,
+    "preset": "smoke",
+    "run": true,
+    "baselines_only": false,
+    "targets": null
+  },
+  "seeds": {
+    "scenarios": "val_v2[0:3) x loads [2.0]"
+  },
+  "git": {
+    "commit": "8884d1a3a4a68e2945eb71ea2c7fef3d803cbb17",
+    "dirty": true
+  },
+  "code_tree_sha256": "f8c1efe7d8e70885ff5dd91ded9af7d2e5078e1d9b7570dbfc0df55b2f4d193e",
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cu128",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.2",
+    "pytest": "8.4.2"
+  },
+  "inputs": {},
+  "outputs": {
+    "/media/bakhom/New Volume/Research/RL_Sec/practical/phase2-validation/FINAL_DELIVERABLES/audit/x07_smoke_validation_20261031/episodes.csv": "9f2008617e5ec96b9b9596be8b0c64291a509f16cffa733a15c2cc49c46fb326"
+  },
+  "extra": {
+    "topology_sha256": "fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e",
+    "plan": {
+      "preset": "smoke",
+      "attack_configs": 6,
+      "episodes_per_target": 18,
+      "baseline_targets": 6,
+      "model_targets": {
+        "A_600k": 1
+      },
+      "est_cpu_minutes": 0.0
+    },
+    "heuristic": {
+      "p": 1.0,
+      "floor": 0.1,
+      "infeasible_multiplier": 1.0
+    },
+    "status_of_results": "pipeline check only",
+    "expected_rows_per_target": 18,
+    "expected_parts": [
+      "A_600k__42.csv",
+      "greedy_widest__-1.csv",
+      "minhop__-1.csv",
+      "shortest_feasible__-1.csv",
+      "shortest_feasible_k__-1.csv",
+      "unit_weight_dijkstra__-1.csv",
+      "util_weight_dijkstra__-1.csv"
+    ],
+    "n_rows": 126,
+    "invariants": {
+      "all_replay_ok": true,
+      "all_caps_ok": true,
+      "max_delta_over_budget": 5.551115123125783e-17
+    },
+    "validated_target_seed_pairs": [
+      [
+        "A_600k",
+        42
+      ],
+      [
+        "greedy_widest",
+        -1
+      ],
+      [
+        "minhop",
+        -1
+      ],
+      [
+        "shortest_feasible",
+        -1
+      ],
+      [
+        "shortest_feasible_k",
+        -1
+      ],
+      [
+        "unit_weight_dijkstra",
+        -1
+      ],
+      [
+        "util_weight_dijkstra",
+        -1
+      ]
+    ]
+  },
+  "wall_s": 2.4,
+  "finished_utc": "2026-10-31T11:48:09+00:00"
+}

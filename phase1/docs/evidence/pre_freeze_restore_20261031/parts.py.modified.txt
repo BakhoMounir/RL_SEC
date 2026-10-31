@@ -1,0 +1,133 @@
+"""Resumable part files: one CSV per (method, model seed[, ...]); a part is skipped if it already exists; written atomically."""
+from __future__ import annotations
+
+import csv
+import io
+import json
+from pathlib import Path
+
+from .config import atomic_write_text, sha256_file
+
+
+def part_name(*bits) -> str:
+    return "__".join(str(b).replace("/", "-").replace("@", "-at-") for b in bits) + ".csv"
+
+
+def write_part(path: Path, rows: list) -> None:
+    keys = []
+    for r in rows:
+        for k in r:
+            if k not in keys:
+                keys.append(k)
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=keys)
+    w.writeheader()
+    w.writerows(rows)
+    atomic_write_text(path, buf.getvalue())
+
+
+def merge_parts(
+    parts_dir: Path,
+    out_csv: Path,
+    expected_parts=None,
+) -> int:
+    """
+    Merge CSV parts.
+
+    When expected_parts is provided, require an exact filename match:
+    missing and unexpected CSV files are rejected. Every part must have
+    a header and at least one data row. CSV headers must be unique.
+    """
+    parts_dir = Path(parts_dir)
+
+    if not parts_dir.is_dir():
+        raise FileNotFoundError(f"parts directory does not exist: {parts_dir}")
+
+    actual_files = {p.name for p in parts_dir.glob("*.csv") if p.is_file()}
+
+    if expected_parts is None:
+        files = [parts_dir / name for name in sorted(actual_files)]
+    else:
+        expected_names = {
+            Path(p).name for p in expected_parts
+        }
+
+        if len(expected_names) != len(list(expected_parts)):
+            raise ValueError("expected_parts contains duplicate filenames")
+
+        missing = expected_names - actual_files
+        unexpected = actual_files - expected_names
+
+        if missing:
+            raise ValueError(f"missing expected part files: {sorted(missing)}")
+        if unexpected:
+            raise ValueError(f"unexpected CSV part files: {sorted(unexpected)}")
+
+        files = [parts_dir / name for name in sorted(expected_names)]
+
+    if not files:
+        raise ValueError("no CSV part files found")
+
+    rows = []
+    keys = []
+
+    for part in files:
+        try:
+            with part.open(newline="", encoding="utf-8") as fh:
+                reader = csv.DictReader(fh)
+
+                if not reader.fieldnames:
+                    raise ValueError("missing CSV header")
+
+                if len(reader.fieldnames) != len(set(reader.fieldnames)):
+                    raise ValueError("duplicate CSV column names")
+
+                part_rows = list(reader)
+
+                if not part_rows:
+                    raise ValueError("no data rows")
+
+                for row in part_rows:
+                    if None in row:
+                        raise ValueError("row has more values than the header")
+                    if any(value is None for value in row.values()):
+                        raise ValueError("row has fewer values than the header")
+
+                for key in reader.fieldnames:
+                    if key not in keys:
+                        keys.append(key)
+
+                rows.extend(part_rows)
+
+        except (OSError, csv.Error) as exc:
+            raise ValueError(f"cannot read part {part.name}: {exc}") from exc
+        except ValueError as exc:
+            raise ValueError(f"invalid part {part.name}: {exc}") from exc
+
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=keys, restval="")
+    writer.writeheader()
+    writer.writerows(rows)
+    atomic_write_text(Path(out_csv), buf.getvalue())
+
+    return len(rows)
+
+
+def verify_freeze(cfg, freeze_file: Path, ned_sha: str, root: Path):
+    """Return the freeze dict or raise SystemExit-style ValueError describing the first mismatch."""
+    from .manifest import core_code_sha256
+    if not Path(freeze_file).is_file():
+        raise ValueError(f"no freeze at {freeze_file}; run scripts/x_05_freeze.py --yes first")
+    fr = json.loads(Path(freeze_file).read_text())
+    if fr["config_sha256"] != cfg["_sha256"]:
+        raise ValueError("configs/x_experiments.json changed since the freeze")
+    if fr["topology_sha256"] != ned_sha:
+        raise ValueError("topology differs from the frozen one")
+    if fr["core_code_sha256"] != core_code_sha256():
+        raise ValueError("src/p2 or src/p2x changed since the freeze")
+    for aid, entry in fr["models"].items():
+        for s, m in entry.items():
+            p = root / m["path"]
+            if not p.is_file() or sha256_file(p) != m["sha256"]:
+                raise ValueError(f"checkpoint {aid} seed {s} changed or missing: {p}")
+    return fr

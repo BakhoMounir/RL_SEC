@@ -1,0 +1,30 @@
+HEAD: 8884d1a3a4a68e2945eb71ea2c7fef3d803cbb17
+
+Working tree:
+ M phase2/results/v2/diag_checkpoints_enhance/per_model.csv
+ M phase2/results/v2/diag_checkpoints_replace/per_model.csv
+ M phase2/results/v2/env_check/checkpoint_integrity.csv
+ M phase2/results/v2/static_audit/static_audit.json
+ M phase2/src/p2/sim.py
+ M phase2/tests/test_x_policies_telemetry.py
+?? FINAL_COMPLETION_LOG.txt
+?? FINAL_COMPLETION_REPORT.txt
+?? FINAL_DELIVERABLES/
+?? PHASE2_FINAL_DELIVERABLES_20261028T223309Z.zip
+?? phase2/FINAL_DELIVERABLES/
+?? phase2/configs/x_experiments_local.json
+?? phase2/research_review/
+?? phase2/results/v2/FINAL_AUDIT_LOG.txt
+?? phase2/results/v2/FINAL_AUDIT_REPORT.md
+?? phase2/results/v2/agent_a_600k_verification/
+?? phase2/results/v2/confirmatory_v1/manifest.json
+?? phase2/results/v2/diag_enhance_local/
+?? phase2/results/v2/diag_replace_local/
+?? phase2/results/v2/env_check_600k_local/
+?? phase2/results/v2/env_check_local/
+?? phase2/results/v2/figures_final/
+?? phase2/results/v2/freeze.json
+?? phase2_missing_files.log
+?? phase2_routing_poisoning_project_dossier_and_review_prompt.md
+?? phase2_test_diagnostic.log
+?? restore_log.txt

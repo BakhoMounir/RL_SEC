@@ -1,0 +1,20 @@
+# Routing-and-poisoning
+
+Telemetry-poisoning attacks on PPO-based routing agents (NSFNet-style topologies).
+
+**Status:** TODO (fill from `docs/03_CURRENT_STATUS.md`: which stages are complete).
+
+## Layout
+- `phase1/`  original prototype, checksummed originals, original-script re-run audit
+- `phase2/`  validation pipeline: `src/p2` (simulator), `src/p2x` (pipeline), `scripts/x_00..x_09`, `tests/`, `configs/`
+- `phase2/results/v2/`  frozen clean-stage evidence (`freeze.json`, `SHA256SUMS.txt`, audits, final figures)
+- `phase2/results/deliverables/`  poisoning/clean reports, manifests, tables
+- `docs/`  protocol, threat model, methodology audit, deviations, reproduction steps
+- `paper/`  manuscript sources
+
+## Reading the results honestly
+See `docs/DEVIATIONS.md` for every departure from the pre-specified protocol
+(statistics revision, post-freeze code changes, pilot vs full runs).
+
+## Reproduce
+See `docs/REPRODUCING.md`. Datasets are not redistributed; see `DATA_LICENSES.md`.
