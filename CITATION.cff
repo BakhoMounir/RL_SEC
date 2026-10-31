@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it."
+title: "RL_SEC: telemetry poisoning of RL-based routing"
+authors:
+  - family-names: "TODO"
+    given-names: "TODO"
+repository-code: "https://github.com/BakhoMounir/RL_SEC"

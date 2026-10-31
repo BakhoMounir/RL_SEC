@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+*.before_*
+*.modified
+*_backup_*/
+backups/
+x_experiments_local.json
+.env
+# third-party / not redistributable without a license check
+external-topology-zoo/
+external-gnn-research/
+ENERO/
+research_review/paper_text/
+# large artifacts: publish via GitHub Release / Zenodo
+*.tar.gz
+*.ckpt
+# LaTeX build
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
