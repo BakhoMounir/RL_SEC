@@ -27,3 +27,6 @@ paper/*.blg
 paper/*.fls
 paper/*.fdb_latexmk
 paper/*.synctex.gz
+
+# intermediate per-target parts (merged into episodes.csv)
+phase2/results/v2/poison_full/parts/

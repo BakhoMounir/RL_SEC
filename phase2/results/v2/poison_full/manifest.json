@@ -1,0 +1,154 @@
+{
+  "name": "x_07_poison_eval[full]",
+  "status": "completed",
+  "started_utc": "2026-11-13T15:11:12+00:00",
+  "config_path": "D:\\research\\RL_SEC\\phase2\\configs\\x_experiments.json",
+  "config_sha256": "b9b43f0a7592568bb0fd788ce2123db4acc874fd5938fdea6be797c41fe9c655",
+  "args": {
+    "config": "D:\\research\\RL_SEC\\phase2\\configs\\x_experiments.json",
+    "out": null,
+    "overwrite": false,
+    "verbose": false,
+    "preset": "full",
+    "run": true,
+    "baselines_only": false,
+    "targets": null
+  },
+  "seeds": {
+    "scenarios": "test_poison_v2[0:300) x loads [2.0, 3.0]"
+  },
+  "git": {
+    "commit": "75e354609fb2c863cb6619d6996671845e7b872b",
+    "dirty": true
+  },
+  "code_tree_sha256": "2164ee0acd69c28461406400b54143f154833fbbd480a7098e71796e53b7b714",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.11.0+cu128",
+    "stable-baselines3": "2.9.0",
+    "gymnasium": "1.4.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "networkx": "3.7",
+    "matplotlib": "3.11.2",
+    "pytest": "9.2.0"
+  },
+  "inputs": {},
+  "outputs": {
+    "D:\\research\\RL_SEC\\phase2\\results\\v2\\poison_full\\episodes.csv": "deb8c6c6076b656555e1964ee6af23bb2572bcf3d34d175d80e156f550338b36"
+  },
+  "extra": {
+    "topology_sha256": "fe497b0bce187d1b7fe454e92c8778357dfa21ef2587878723d7d43d52824e7e",
+    "plan": {
+      "preset": "full",
+      "attack_configs": 16,
+      "episodes_per_target": 9600,
+      "baseline_targets": 6,
+      "model_targets": {
+        "A_600k": 10
+      },
+      "est_cpu_minutes": 137.6
+    },
+    "heuristic": {
+      "p": 1.0,
+      "floor": 0.1,
+      "infeasible_multiplier": 1.0
+    },
+    "status_of_results": "pre-declared Stage F run",
+    "expected_rows_per_target": 9600,
+    "expected_parts": [
+      "A_600k__42.csv",
+      "A_600k__43.csv",
+      "A_600k__44.csv",
+      "A_600k__45.csv",
+      "A_600k__46.csv",
+      "A_600k__47.csv",
+      "A_600k__48.csv",
+      "A_600k__49.csv",
+      "A_600k__50.csv",
+      "A_600k__51.csv",
+      "greedy_widest__-1.csv",
+      "minhop__-1.csv",
+      "shortest_feasible__-1.csv",
+      "shortest_feasible_k__-1.csv",
+      "unit_weight_dijkstra__-1.csv",
+      "util_weight_dijkstra__-1.csv"
+    ],
+    "n_rows": 153600,
+    "invariants": {
+      "all_replay_ok": true,
+      "all_caps_ok": true,
+      "max_delta_over_budget": 5.551115123125783e-17
+    },
+    "validated_target_seed_pairs": [
+      [
+        "A_600k",
+        42
+      ],
+      [
+        "A_600k",
+        43
+      ],
+      [
+        "A_600k",
+        44
+      ],
+      [
+        "A_600k",
+        45
+      ],
+      [
+        "A_600k",
+        46
+      ],
+      [
+        "A_600k",
+        47
+      ],
+      [
+        "A_600k",
+        48
+      ],
+      [
+        "A_600k",
+        49
+      ],
+      [
+        "A_600k",
+        50
+      ],
+      [
+        "A_600k",
+        51
+      ],
+      [
+        "greedy_widest",
+        -1
+      ],
+      [
+        "minhop",
+        -1
+      ],
+      [
+        "shortest_feasible",
+        -1
+      ],
+      [
+        "shortest_feasible_k",
+        -1
+      ],
+      [
+        "unit_weight_dijkstra",
+        -1
+      ],
+      [
+        "util_weight_dijkstra",
+        -1
+      ]
+    ]
+  },
+  "wall_s": 5703.0,
+  "finished_utc": "2026-11-13T16:46:16+00:00"
+}
